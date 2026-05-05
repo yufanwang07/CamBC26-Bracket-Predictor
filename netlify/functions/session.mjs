@@ -7,10 +7,20 @@ export async function handler(event) {
     return json({ authenticated: false, discordConfigured, teams: SEEDED_TEAMS });
   }
 
-  const account = await getAccount(session.sub);
+  let account = null;
+  let storageConfigured = true;
+  let storageError = "";
+  try {
+    account = await getAccount(session.sub);
+  } catch (error) {
+    storageConfigured = false;
+    storageError = error?.message || "Unable to read Axionite account storage.";
+  }
   return json({
     authenticated: true,
     discordConfigured,
+    storageConfigured,
+    storageError,
     user: {
       id: session.sub,
       username: session.username,

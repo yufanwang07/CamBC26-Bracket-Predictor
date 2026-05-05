@@ -76,7 +76,7 @@ export async function handler(event) {
     createdAt: now
   };
 
-  await marketStore().setJSON(`bet:${betId}`, record);
+  await (await marketStore()).setJSON(`bet:${betId}`, record);
 
   account.availableBalance -= bet.amount;
   if (locked) {

@@ -1,4 +1,3 @@
-import { getStore } from "@netlify/blobs";
 import crypto from "node:crypto";
 
 export const SEEDED_TEAMS = [
@@ -112,17 +111,18 @@ export function getSession(event) {
   }
 }
 
-export function marketStore() {
-  return getStore(STORE_NAME);
+export async function marketStore() {
+  const { getStore } = await import("@netlify/blobs");
+  return getStore({ name: STORE_NAME, consistency: "strong" });
 }
 
 export async function getAccount(userId) {
-  return await marketStore().get(`account:${userId}`, { type: "json", consistency: "strong" });
+  return await (await marketStore()).get(`account:${userId}`, { type: "json" });
 }
 
 export async function saveAccount(account) {
   account.updatedAt = new Date().toISOString();
-  await marketStore().setJSON(`account:${account.userId}`, account);
+  await (await marketStore()).setJSON(`account:${account.userId}`, account);
   return account;
 }
 
