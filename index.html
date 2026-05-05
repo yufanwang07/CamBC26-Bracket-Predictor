@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Double Elimination Bracket</title>
+<style>
+    :root {
+        --background: #09090b;
+        --foreground: #f4f4f5;
+        --muted: #18181b;
+        --muted-foreground: #a1a1aa;
+        --border: #27272a;
+        --card: #0f0f12;
+        --card-hover: #17171b;
+        --winner-bg: rgba(34, 197, 94, 0.10);
+        --winner-fg: #86efac;
+        --line: rgba(244, 244, 245, 0.38);
+        --drop: rgba(239, 68, 68, 0.34);
+        --accent: #60a5fa;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background:
+            radial-gradient(circle at 20% 0%, rgba(96, 165, 250, 0.10), transparent 28rem),
+            radial-gradient(circle at 90% 20%, rgba(34, 197, 94, 0.08), transparent 26rem),
+            var(--background);
+        color: var(--foreground);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-size: 13px;
+    }
+
+    .page {
+        padding: 22px;
+    }
+
+    .topbar {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 18px;
+    }
+
+    .title h1 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+    }
+
+    .title p {
+        margin: 6px 0 0;
+        color: var(--muted-foreground);
+    }
+
+    .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .pill {
+        border: 1px solid var(--border);
+        background: rgba(15, 15, 18, 0.82);
+        border-radius: 10px;
+        padding: 8px 10px;
+        min-width: 150px;
+    }
+
+    .pill .k {
+        color: var(--muted-foreground);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .pill .v {
+        font-weight: 700;
+        margin-top: 2px;
+        white-space: nowrap;
+    }
+
+    .legend {
+        display: flex;
+        gap: 14px;
+        color: var(--muted-foreground);
+        margin: 0 0 12px;
+        font-size: 12px;
+    }
+
+    .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .legend-line {
+        width: 28px;
+        height: 0;
+        border-top: 2px solid var(--line);
+    }
+
+    .legend-line.drop {
+        border-top: 2px dashed var(--drop);
+    }
+
+    .viewport {
+        border: 1px solid var(--border);
+        background: rgba(9, 9, 11, 0.72);
+        border-radius: 14px;
+        overflow: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .canvas {
+        position: relative;
+        width: 2352px;
+        height: 1248px;
+    }
+
+    .round-header {
+        position: absolute;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border-bottom: 1px solid var(--border);
+        color: var(--muted-foreground);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        user-select: none;
+        cursor: pointer;
+        background: transparent;
+        font-family: inherit;
+    }
+
+    .round-header:hover {
+        color: var(--foreground);
+        background: rgba(255, 255, 255, 0.025);
+    }
+
+    .round-header .count {
+        opacity: 0.55;
+        font-weight: 500;
+    }
+
+    .round-toggle.collapsed {
+        color: #fca5a5;
+        border-bottom-color: rgba(239, 68, 68, 0.5);
+    }
+
+    svg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: visible;
+    }
+
+    .advance-line {
+        fill: none;
+        stroke: var(--line);
+        stroke-width: 1.6;
+    }
+
+    .drop-line {
+        fill: none;
+        stroke: var(--drop);
+        stroke-width: 1.4;
+    }
+
+    .round-line.is-collapsed {
+        display: none;
+    }
+
+    .match-card {
+        position: absolute;
+        border: 1px solid var(--border);
+        background: rgba(15, 15, 18, 0.96);
+        border-radius: 7px;
+        overflow: hidden;
+        transition: background 120ms ease, border-color 120ms ease, transform 120ms ease, opacity 120ms ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .match-card:hover {
+        background: var(--card-hover);
+        border-color: rgba(96, 165, 250, 0.55);
+        transform: translateY(-1px);
+        z-index: 10;
+    }
+
+    .match-card.is-collapsed {
+        display: none;
+    }
+
+    .match-tag {
+        position: absolute;
+        right: 5px;
+        top: 2px;
+        color: var(--muted-foreground);
+        font-size: 8px;
+        opacity: 0.55;
+        z-index: 2;
+    }
+
+    .team-row {
+        height: 26px;
+        display: grid;
+        grid-template-columns: 14px minmax(0, 1fr) 42px 18px;
+        align-items: center;
+        gap: 4px;
+        padding: 0 7px;
+        color: var(--foreground);
+    }
+
+    .winner-row {
+        background: var(--winner-bg);
+        color: var(--winner-fg);
+        font-weight: 700;
+    }
+
+    .divider {
+        height: 1px;
+        background: var(--border);
+    }
+
+    .seed {
+        color: var(--muted-foreground);
+        font-size: 10px;
+    }
+
+    .name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 11px;
+    }
+
+    .rating {
+        text-align: right;
+        color: var(--muted-foreground);
+        font-size: 9px;
+        opacity: 0.78;
+    }
+
+    .score {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .prob {
+        position: absolute;
+        right: 6px;
+        bottom: -15px;
+        color: var(--muted-foreground);
+        font-size: 9px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 120ms ease;
+    }
+
+    .match-card:hover .prob {
+        opacity: 1;
+    }
+
+    .note {
+        margin-top: 10px;
+        color: var(--muted-foreground);
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+    <div class="topbar">
+        <div class="title">
+            <h1>Double Elimination Bracket</h1>
+            <p>Most common simulated bracket. Click any round header to collapse or expand it.</p>
+        </div>
+
+        <div class="stats">
+            <div class="pill">
+                <div class="k">Champion</div>
+                <div class="v">Pantheon</div>
+            </div>
+            <div class="pill">
+                <div class="k">Common bracket</div>
+                <div class="v">15,140 / 1,000,000</div>
+            </div>
+            <div class="pill">
+                <div class="k">Observed freq</div>
+                <div class="v">1.514%</div>
+            </div>
+            <div class="pill">
+                <div class="k">Product prob</div>
+                <div class="v">1.495e-02</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><span class="legend-line"></span> winner advances</div>
+        <div class="legend-item"><span class="legend-line drop"></span> loser drops to lower bracket</div>
+    </div>
+
+    <div class="viewport">
+        <div class="canvas">
+            
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-R1"
+            style="left:24px; top:0px; width:224px;"
+            title="Click to collapse/expand UB R1"
+        >
+            <span>UB R1</span>
+            <span class="count">(8)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-QF"
+            style="left:320px; top:0px; width:224px;"
+            title="Click to collapse/expand UB QF"
+        >
+            <span>UB QF</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-SF"
+            style="left:616px; top:0px; width:224px;"
+            title="Click to collapse/expand UB SF"
+        >
+            <span>UB SF</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-Final"
+            style="left:912px; top:0px; width:224px;"
+            title="Click to collapse/expand UB Final"
+        >
+            <span>UB Final</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="Grand-Final"
+            style="left:1800px; top:0px; width:224px;"
+            title="Click to collapse/expand GF"
+        >
+            <span>GF</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R1"
+            style="left:24px; top:742px; width:224px;"
+            title="Click to collapse/expand LB R1"
+        >
+            <span>LB R1</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R2"
+            style="left:320px; top:742px; width:224px;"
+            title="Click to collapse/expand LB R2"
+        >
+            <span>LB R2</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R3"
+            style="left:616px; top:742px; width:224px;"
+            title="Click to collapse/expand LB R3"
+        >
+            <span>LB R3</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R4"
+            style="left:912px; top:742px; width:224px;"
+            title="Click to collapse/expand LB R4"
+        >
+            <span>LB R4</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R5"
+            style="left:1208px; top:742px; width:224px;"
+            title="Click to collapse/expand LB R5"
+        >
+            <span>LB R5</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-Final"
+            style="left:1504px; top:742px; width:224px;"
+            title="Click to collapse/expand LB Final"
+        >
+            <span>LB Final</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+            <svg width="2352" height="1248" viewBox="0 0 2352 1248">
+                <path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 87.0 L 280.4 87.0 L 280.4 127.0 L 320.0 127.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 167.0 L 280.4 167.0 L 280.4 127.0 L 320.0 127.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 247.0 L 280.4 247.0 L 280.4 287.0 L 320.0 287.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 327.0 L 280.4 327.0 L 280.4 287.0 L 320.0 287.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 407.0 L 280.4 407.0 L 280.4 447.0 L 320.0 447.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 487.0 L 280.4 487.0 L 280.4 447.0 L 320.0 447.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 567.0 L 280.4 567.0 L 280.4 607.0 L 320.0 607.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 248.0 647.0 L 280.4 647.0 L 280.4 607.0 L 320.0 607.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 544.0 127.0 L 576.4 127.0 L 576.4 207.0 L 616.0 207.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 544.0 287.0 L 576.4 287.0 L 576.4 207.0 L 616.0 207.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 544.0 447.0 L 576.4 447.0 L 576.4 527.0 L 616.0 527.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 544.0 607.0 L 576.4 607.0 L 576.4 527.0 L 616.0 527.0"/><path class="advance-line round-line" data-src-round="UB-SF" data-dst-round="UB-Final" d="M 840.0 207.0 L 872.4 207.0 L 872.4 367.0 L 912.0 367.0"/><path class="advance-line round-line" data-src-round="UB-SF" data-dst-round="UB-Final" d="M 840.0 527.0 L 872.4 527.0 L 872.4 367.0 L 912.0 367.0"/><path class="advance-line round-line" data-src-round="UB-Final" data-dst-round="Grand-Final" d="M 1136.0 367.0 L 1434.8 367.0 L 1434.8 367.0 L 1800.0 367.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 248.0 815.0 L 280.4 815.0 L 280.4 815.0 L 320.0 815.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 248.0 895.0 L 280.4 895.0 L 280.4 895.0 L 320.0 895.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 248.0 975.0 L 280.4 975.0 L 280.4 975.0 L 320.0 975.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 248.0 1055.0 L 280.4 1055.0 L 280.4 1055.0 L 320.0 1055.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 544.0 815.0 L 576.4 815.0 L 576.4 855.0 L 616.0 855.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 544.0 895.0 L 576.4 895.0 L 576.4 855.0 L 616.0 855.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 544.0 975.0 L 576.4 975.0 L 576.4 1015.0 L 616.0 1015.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 544.0 1055.0 L 576.4 1055.0 L 576.4 1015.0 L 616.0 1015.0"/><path class="advance-line round-line" data-src-round="LB-R3" data-dst-round="LB-R4" d="M 840.0 855.0 L 872.4 855.0 L 872.4 855.0 L 912.0 855.0"/><path class="advance-line round-line" data-src-round="LB-R3" data-dst-round="LB-R4" d="M 840.0 1015.0 L 872.4 1015.0 L 872.4 1015.0 L 912.0 1015.0"/><path class="advance-line round-line" data-src-round="LB-R4" data-dst-round="LB-R5" d="M 1136.0 855.0 L 1168.4 855.0 L 1168.4 935.0 L 1208.0 935.0"/><path class="advance-line round-line" data-src-round="LB-R4" data-dst-round="LB-R5" d="M 1136.0 1015.0 L 1168.4 1015.0 L 1168.4 935.0 L 1208.0 935.0"/><path class="advance-line round-line" data-src-round="LB-R5" data-dst-round="LB-Final" d="M 1432.0 935.0 L 1464.4 935.0 L 1464.4 935.0 L 1504.0 935.0"/><path class="advance-line round-line" data-src-round="LB-Final" data-dst-round="Grand-Final" d="M 1728.0 935.0 L 1760.4 935.0 L 1760.4 367.0 L 1800.0 367.0"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 87.0 L 270.0 87.0 L 270.0 815.0 L 24.0 815.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 167.0 L 270.0 167.0 L 270.0 815.0 L 24.0 815.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 247.0 L 270.0 247.0 L 270.0 895.0 L 24.0 895.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 327.0 L 270.0 327.0 L 270.0 895.0 L 24.0 895.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 407.0 L 270.0 407.0 L 270.0 975.0 L 24.0 975.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 487.0 L 270.0 487.0 L 270.0 975.0 L 24.0 975.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 567.0 L 270.0 567.0 L 270.0 1055.0 L 24.0 1055.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 248.0 647.0 L 270.0 647.0 L 270.0 1055.0 L 24.0 1055.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 544.0 127.0 L 566.0 127.0 L 566.0 815.0 L 320.0 815.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 544.0 287.0 L 566.0 287.0 L 566.0 895.0 L 320.0 895.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 544.0 447.0 L 566.0 447.0 L 566.0 975.0 L 320.0 975.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 544.0 607.0 L 566.0 607.0 L 566.0 1055.0 L 320.0 1055.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-SF" data-dst-round="LB-R4" d="M 840.0 207.0 L 872.4 207.0 L 872.4 855.0 L 912.0 855.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-SF" data-dst-round="LB-R4" d="M 840.0 527.0 L 872.4 527.0 L 872.4 1015.0 L 912.0 1015.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-Final" data-dst-round="LB-Final" d="M 1136.0 367.0 L 1301.6 367.0 L 1301.6 935.0 L 1504.0 935.0" stroke-dasharray="4 4"/>
+            </svg>
+
+            
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:60px; width:224px; height:54px;"
+            title="UB-R1-1 | Winner: Pantheon | Loser: Mr Worldwide"
+        >
+            <div class="match-tag">UB-R1-1</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="rating">3197</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Mr Worldwide">Mr Worldwide</span>
+            <span class="rating">2278</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:140px; width:224px; height:54px;"
+            title="UB-R1-2 | Winner: test | Loser: Beehive"
+        >
+            <div class="match-tag">UB-R1-2</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="rating">2666</span>
+            <span class="score">3</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="test">test</span>
+            <span class="rating">2637</span>
+            <span class="score">6</span>
+        </div>
+        
+            <div class="prob">winner p=62.1%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:220px; width:224px; height:54px;"
+            title="UB-R1-3 | Winner: muteki | Loser: The Cambridge Edge"
+        >
+            <div class="match-tag">UB-R1-3</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="rating">2749</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
+            <span class="rating">2456</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:300px; width:224px; height:54px;"
+            title="UB-R1-4 | Winner: bwaaa | Loser: Silver Street Capital"
+        >
+            <div class="match-tag">UB-R1-4</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="rating">2894</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="rating">2454</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:380px; width:224px; height:54px;"
+            title="UB-R1-5 | Winner: MFF1 | Loser: Grandmaster Oogway"
+        >
+            <div class="match-tag">UB-R1-5</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="rating">2708</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="rating">2520</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:460px; width:224px; height:54px;"
+            title="UB-R1-6 | Winner: Kessoku Band | Loser: Tootill Labs"
+        >
+            <div class="match-tag">UB-R1-6</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="rating">3062</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="rating">2454</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:540px; width:224px; height:54px;"
+            title="UB-R1-7 | Winner: randomusergroup | Loser: anime girls against period cramp"
+        >
+            <div class="match-tag">UB-R1-7</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="rating">2669</span>
+            <span class="score">8</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="rating">2538</span>
+            <span class="score">1</span>
+        </div>
+        
+            <div class="prob">winner p=85.5%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:24px; top:620px; width:224px; height:54px;"
+            title="UB-R1-8 | Winner: something else | Loser: Axionite Allergic Individuals"
+        >
+            <div class="match-tag">UB-R1-8</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="something else">something else</span>
+            <span class="rating">3113</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
+            <span class="rating">2292</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:320px; top:100px; width:224px; height:54px;"
+            title="UB-QF-1 | Winner: Pantheon | Loser: test"
+        >
+            <div class="match-tag">UB-QF-1</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="rating">3197</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="test">test</span>
+            <span class="rating">2637</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:320px; top:260px; width:224px; height:54px;"
+            title="UB-QF-2 | Winner: bwaaa | Loser: muteki"
+        >
+            <div class="match-tag">UB-QF-2</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="rating">2749</span>
+            <span class="score">1</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="rating">2894</span>
+            <span class="score">8</span>
+        </div>
+        
+            <div class="prob">winner p=87.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:320px; top:420px; width:224px; height:54px;"
+            title="UB-QF-3 | Winner: Kessoku Band | Loser: MFF1"
+        >
+            <div class="match-tag">UB-QF-3</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="rating">2708</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="rating">3062</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:320px; top:580px; width:224px; height:54px;"
+            title="UB-QF-4 | Winner: something else | Loser: randomusergroup"
+        >
+            <div class="match-tag">UB-QF-4</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="rating">2669</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="something else">something else</span>
+            <span class="rating">3113</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-SF"
+            style="left:616px; top:180px; width:224px; height:54px;"
+            title="UB-SF-1 | Winner: Pantheon | Loser: bwaaa"
+        >
+            <div class="match-tag">UB-SF-1</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="rating">3197</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="rating">2894</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=99.9%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-SF"
+            style="left:616px; top:500px; width:224px; height:54px;"
+            title="UB-SF-2 | Winner: something else | Loser: Kessoku Band"
+        >
+            <div class="match-tag">UB-SF-2</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="rating">3062</span>
+            <span class="score">2</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="something else">something else</span>
+            <span class="rating">3113</span>
+            <span class="score">7</span>
+        </div>
+        
+            <div class="prob">winner p=79.4%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-Final"
+            style="left:912px; top:340px; width:224px; height:54px;"
+            title="UB-Final | Winner: Pantheon | Loser: something else"
+        >
+            <div class="match-tag">UB-Final</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="rating">3197</span>
+            <span class="score">7</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="something else">something else</span>
+            <span class="rating">3113</span>
+            <span class="score">2</span>
+        </div>
+        
+            <div class="prob">winner p=81.6%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:24px; top:788px; width:224px; height:54px;"
+            title="LB-R1-1 | Winner: Beehive | Loser: Mr Worldwide"
+        >
+            <div class="match-tag">LB-R1-1</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Mr Worldwide">Mr Worldwide</span>
+            <span class="rating">2278</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="rating">2666</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:24px; top:868px; width:224px; height:54px;"
+            title="LB-R1-2 | Winner: Silver Street Capital | Loser: The Cambridge Edge"
+        >
+            <div class="match-tag">LB-R1-2</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
+            <span class="rating">2456</span>
+            <span class="score">3</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="rating">2454</span>
+            <span class="score">6</span>
+        </div>
+        
+            <div class="prob">winner p=69.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:24px; top:948px; width:224px; height:54px;"
+            title="LB-R1-3 | Winner: Grandmaster Oogway | Loser: Tootill Labs"
+        >
+            <div class="match-tag">LB-R1-3</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="rating">2520</span>
+            <span class="score">5</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="rating">2454</span>
+            <span class="score">4</span>
+        </div>
+        
+            <div class="prob">winner p=58.2%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:24px; top:1028px; width:224px; height:54px;"
+            title="LB-R1-4 | Winner: anime girls against period cramp | Loser: Axionite Allergic Individuals"
+        >
+            <div class="match-tag">LB-R1-4</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="rating">2538</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
+            <span class="rating">2292</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:320px; top:788px; width:224px; height:54px;"
+            title="LB-R2-1 | Winner: test | Loser: Beehive"
+        >
+            <div class="match-tag">LB-R2-1</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="rating">2666</span>
+            <span class="score">3</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="test">test</span>
+            <span class="rating">2637</span>
+            <span class="score">6</span>
+        </div>
+        
+            <div class="prob">winner p=62.1%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:320px; top:868px; width:224px; height:54px;"
+            title="LB-R2-2 | Winner: muteki | Loser: Silver Street Capital"
+        >
+            <div class="match-tag">LB-R2-2</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="rating">2454</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="rating">2749</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:320px; top:948px; width:224px; height:54px;"
+            title="LB-R2-3 | Winner: MFF1 | Loser: Grandmaster Oogway"
+        >
+            <div class="match-tag">LB-R2-3</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="rating">2520</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="rating">2708</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:320px; top:1028px; width:224px; height:54px;"
+            title="LB-R2-4 | Winner: randomusergroup | Loser: anime girls against period cramp"
+        >
+            <div class="match-tag">LB-R2-4</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="rating">2538</span>
+            <span class="score">1</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="rating">2669</span>
+            <span class="score">8</span>
+        </div>
+        
+            <div class="prob">winner p=85.5%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R3"
+            style="left:616px; top:828px; width:224px; height:54px;"
+            title="LB-R3-1 | Winner: muteki | Loser: test"
+        >
+            <div class="match-tag">LB-R3-1</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="test">test</span>
+            <span class="rating">2637</span>
+            <span class="score">3</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="rating">2749</span>
+            <span class="score">6</span>
+        </div>
+        
+            <div class="prob">winner p=67.1%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R3"
+            style="left:616px; top:988px; width:224px; height:54px;"
+            title="LB-R3-2 | Winner: MFF1 | Loser: randomusergroup"
+        >
+            <div class="match-tag">LB-R3-2</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="rating">2708</span>
+            <span class="score">6</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="rating">2669</span>
+            <span class="score">3</span>
+        </div>
+        
+            <div class="prob">winner p=67.9%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R4"
+            style="left:912px; top:828px; width:224px; height:54px;"
+            title="LB-R4-1 | Winner: bwaaa | Loser: muteki"
+        >
+            <div class="match-tag">LB-R4-1</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="rating">2749</span>
+            <span class="score">1</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="rating">2894</span>
+            <span class="score">8</span>
+        </div>
+        
+            <div class="prob">winner p=87.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R4"
+            style="left:912px; top:988px; width:224px; height:54px;"
+            title="LB-R4-2 | Winner: Kessoku Band | Loser: MFF1"
+        >
+            <div class="match-tag">LB-R4-2</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="rating">2708</span>
+            <span class="score">0</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="rating">3062</span>
+            <span class="score">9</span>
+        </div>
+        
+            <div class="prob">winner p=100.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R5"
+            style="left:1208px; top:908px; width:224px; height:54px;"
+            title="LB-R5 | Winner: Kessoku Band | Loser: bwaaa"
+        >
+            <div class="match-tag">LB-R5</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="rating">2894</span>
+            <span class="score">1</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="rating">3062</span>
+            <span class="score">8</span>
+        </div>
+        
+            <div class="prob">winner p=91.0%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-Final"
+            style="left:1504px; top:908px; width:224px; height:54px;"
+            title="LB-Final | Winner: something else | Loser: Kessoku Band"
+        >
+            <div class="match-tag">LB-Final</div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="rating">3062</span>
+            <span class="score">2</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="something else">something else</span>
+            <span class="rating">3113</span>
+            <span class="score">7</span>
+        </div>
+        
+            <div class="prob">winner p=79.4%</div>
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="Grand-Final"
+            style="left:1800px; top:340px; width:224px; height:54px;"
+            title="Grand-Final | Winner: Pantheon | Loser: something else"
+        >
+            <div class="match-tag">Grand-Final</div>
+            
+        <div class="team-row winner-row">
+            <span class="seed"></span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="rating">3197</span>
+            <span class="score">7</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed"></span>
+            <span class="name" title="something else">something else</span>
+            <span class="rating">3113</span>
+            <span class="score">2</span>
+        </div>
+        
+            <div class="prob">winner p=81.6%</div>
+        </div>
+        
+        </div>
+    </div>
+
+    <div class="note">
+        Displayed scores are predicted from round(winrate × 9). They are not simulated game-by-game BO9 scores.
+    </div>
+</div>
+
+<script>
+(() => {
+    const toggles = document.querySelectorAll('.round-toggle');
+
+    function updateRound(roundKey, collapsed) {
+        document.querySelectorAll(`.match-card[data-round="${roundKey}"]`)
+            .forEach(el => el.classList.toggle('is-collapsed', collapsed));
+
+        document.querySelectorAll('.round-line')
+            .forEach(el => {
+                const src = el.dataset.srcRound;
+                const dst = el.dataset.dstRound;
+                const hide = src === roundKey || dst === roundKey;
+                if (hide) {
+                    el.classList.toggle('is-collapsed', collapsed);
+                }
+            });
+
+        document.querySelectorAll(`.round-toggle[data-round="${roundKey}"]`)
+            .forEach(el => el.classList.toggle('collapsed', collapsed));
+    }
+
+    toggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const roundKey = btn.dataset.round;
+            const collapsed = !btn.classList.contains('collapsed');
+            updateRound(roundKey, collapsed);
+        });
+    });
+})();
+</script>
+</body>
+</html>
