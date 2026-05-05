@@ -95,6 +95,7 @@
 
     .tabbar {
         display: flex;
+        align-items: center;
         gap: 6px;
         margin: 10px 0;
         overflow-x: auto;
@@ -128,11 +129,43 @@
         border-color: rgba(96, 165, 250, 0.58);
     }
 
+    .tab-spacer {
+        flex: 1 0 12px;
+    }
+
+    .champion-picker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted-foreground);
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .champion-select {
+        min-width: 210px;
+        border: 1px solid var(--border);
+        background: rgba(15, 15, 18, 0.82);
+        color: var(--foreground);
+        border-radius: 8px;
+        padding: 7px 10px;
+        font: inherit;
+        font-size: 11px;
+    }
+
     .tab-panel {
         display: none;
     }
 
     .tab-panel.active {
+        display: block;
+    }
+
+    .champion-bracket-panel {
+        display: none;
+    }
+
+    .champion-bracket-panel.active {
         display: block;
     }
 
@@ -370,6 +403,10 @@
         color: var(--foreground);
     }
 
+    .data-table .text-col {
+        text-align: left;
+    }
+
     .data-table tbody tr:hover {
         background: rgba(255, 255, 255, 0.025);
     }
@@ -396,19 +433,19 @@
             </div>
             <div class="pill">
                 <div class="k">Common bracket</div>
-                <div class="v">20,899 / 1,000,000</div>
+                <div class="v">20,755 / 1,000,000</div>
             </div>
             <div class="pill">
                 <div class="k">Observed freq</div>
-                <div class="v">2.090%</div>
+                <div class="v">2.075%</div>
             </div>
             <div class="pill">
                 <div class="k">Stored matches</div>
-                <div class="v">1,470 (+36)</div>
+                <div class="v">1,486 (+16)</div>
             </div>
             <div class="pill">
                 <div class="k">Updated</div>
-                <div class="v">2026-05-06T02:53:39Z</div>
+                <div class="v">2026-05-05T15:03:21Z</div>
             </div>
         </div>
     </div>
@@ -418,6 +455,15 @@
         <button class="tab-button" type="button" data-tab="alt-bracket">Different Champion</button>
         <button class="tab-button" type="button" data-tab="results">Results</button>
         <button class="tab-button" type="button" data-tab="h2h">Head To Head</button>
+        <span class="tab-spacer"></span>
+        <label class="champion-picker">
+            Champion
+            <select class="champion-select" data-champion-select>
+                <option value="0">something else (0.181%)</option>
+<option value="1">Kessoku Band (0.003%)</option>
+<option value="2">bwaaa (0.000%)</option>
+            </select>
+        </label>
     </div>
 
     <section class="tab-panel active" data-panel="bracket">
@@ -428,7 +474,7 @@
             </div>
             <div class="pill">
                 <div class="k">Observed freq</div>
-                <div class="v">2.090%</div>
+                <div class="v">2.075%</div>
             </div>
         </div>
         
@@ -585,7 +631,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -595,7 +641,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2298</span>
+            <span class="rating">2295</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -622,7 +668,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2643</span>
+            <span class="rating">2648</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">38%</span>
@@ -639,7 +685,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -666,7 +712,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -676,7 +722,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2435</span>
+            <span class="rating">2444</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -693,7 +739,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -720,7 +766,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -730,7 +776,7 @@
             
         <div class="team-row">
             <span class="seed">#14</span>
-            <span class="rating">2482</span>
+            <span class="rating">2496</span>
             <span class="name" title="Tootill Labs">Tootill Labs</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -747,7 +793,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -774,7 +820,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -801,7 +847,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -828,7 +874,7 @@
             
         <div class="team-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">2</span>
             <span class="team-prob">2%</span>
@@ -838,7 +884,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">98%</span>
@@ -855,7 +901,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -865,7 +911,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">8</span>
             <span class="team-prob">99%</span>
@@ -882,7 +928,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -892,7 +938,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -909,7 +955,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -919,7 +965,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -936,20 +982,20 @@
             
         <div class="team-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
-            <span class="score">3</span>
-            <span class="team-prob">24%</span>
+            <span class="score">4</span>
+            <span class="team-prob">27%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
-            <span class="score">6</span>
-            <span class="team-prob">76%</span>
+            <span class="score">5</span>
+            <span class="team-prob">73%</span>
         </div>
         
         </div>
@@ -963,7 +1009,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">6</span>
             <span class="team-prob">80%</span>
@@ -973,7 +1019,7 @@
             
         <div class="team-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">3</span>
             <span class="team-prob">20%</span>
@@ -990,7 +1036,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2298</span>
+            <span class="rating">2295</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1000,7 +1046,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#9</span>
-            <span class="rating">2643</span>
+            <span class="rating">2648</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1027,7 +1073,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2435</span>
+            <span class="rating">2444</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">4</span>
             <span class="team-prob">36%</span>
@@ -1039,25 +1085,25 @@
             class="match-card"
             data-round="LB-R1"
             style="left:20px; top:798px; width:198px; height:48px;"
-            title="LB-R1-3 | Winner: Silver Street Capital | Loser: Tootill Labs"
+            title="LB-R1-3 | Winner: Tootill Labs | Loser: Silver Street Capital"
         >
             
-        <div class="team-row winner-row">
+        <div class="team-row">
             <span class="seed">#11</span>
             <span class="rating">2464</span>
             <span class="name" title="Silver Street Capital">Silver Street Capital</span>
-            <span class="score">5</span>
-            <span class="team-prob">52%</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
         </div>
         
             <div class="divider"></div>
             
-        <div class="team-row">
+        <div class="team-row winner-row">
             <span class="seed">#14</span>
-            <span class="rating">2482</span>
+            <span class="rating">2496</span>
             <span class="name" title="Tootill Labs">Tootill Labs</span>
-            <span class="score">4</span>
-            <span class="team-prob">48%</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
         </div>
         
         </div>
@@ -1098,7 +1144,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2643</span>
+            <span class="rating">2648</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">38%</span>
@@ -1135,7 +1181,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1147,25 +1193,25 @@
             class="match-card"
             data-round="LB-R2"
             style="left:266px; top:798px; width:198px; height:48px;"
-            title="LB-R2-3 | Winner: muteki | Loser: Silver Street Capital"
+            title="LB-R2-3 | Winner: muteki | Loser: Tootill Labs"
         >
             
         <div class="team-row">
-            <span class="seed">#11</span>
-            <span class="rating">2464</span>
-            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
-            <span class="score">0</span>
-            <span class="team-prob">0%</span>
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
-            <span class="score">9</span>
-            <span class="team-prob">100%</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
         </div>
         
         </div>
@@ -1189,7 +1235,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1216,7 +1262,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">5</span>
             <span class="team-prob">64%</span>
@@ -1233,20 +1279,20 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
-            <span class="team-prob">82%</span>
+            <span class="team-prob">77%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">3</span>
-            <span class="team-prob">18%</span>
+            <span class="team-prob">23%</span>
         </div>
         
         </div>
@@ -1260,7 +1306,7 @@
             
         <div class="team-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">2</span>
             <span class="team-prob">2%</span>
@@ -1270,7 +1316,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">98%</span>
@@ -1287,7 +1333,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -1297,7 +1343,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">8</span>
             <span class="team-prob">99%</span>
@@ -1314,7 +1360,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">3</span>
             <span class="team-prob">13%</span>
@@ -1324,7 +1370,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">6</span>
             <span class="team-prob">87%</span>
@@ -1341,20 +1387,20 @@
             
         <div class="team-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
-            <span class="score">3</span>
-            <span class="team-prob">24%</span>
+            <span class="score">4</span>
+            <span class="team-prob">27%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
-            <span class="score">6</span>
-            <span class="team-prob">76%</span>
+            <span class="score">5</span>
+            <span class="team-prob">73%</span>
         </div>
         
         </div>
@@ -1368,7 +1414,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">6</span>
             <span class="team-prob">80%</span>
@@ -1378,7 +1424,7 @@
             
         <div class="team-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">3</span>
             <span class="team-prob">20%</span>
@@ -1395,21 +1441,23 @@
     </section>
 
     <section class="tab-panel" data-panel="alt-bracket">
-        <div class="stats">
-            <div class="pill">
-                <div class="k">Champion</div>
-                <div class="v">something else</div>
-            </div>
-            <div class="pill">
-                <div class="k">Common bracket</div>
-                <div class="v">1,676 / 1,000,000</div>
-            </div>
-            <div class="pill">
-                <div class="k">Observed freq</div>
-                <div class="v">0.168%</div>
-            </div>
-        </div>
         
+        <div class="champion-bracket-panel active" data-champion-panel="0">
+            <div class="stats">
+                <div class="pill">
+                    <div class="k">Champion</div>
+                    <div class="v">something else</div>
+                </div>
+                <div class="pill">
+                    <div class="k">Common bracket</div>
+                    <div class="v">1,808 / 1,000,000</div>
+                </div>
+                <div class="pill">
+                    <div class="k">Observed freq</div>
+                    <div class="v">0.181%</div>
+                </div>
+            </div>
+            
         <div class="legend">
             <div class="legend-item"><span class="legend-line"></span> winner advances</div>
             <div class="legend-item"><span class="legend-line drop"></span> loser drops to lower bracket</div>
@@ -1563,7 +1611,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1573,7 +1621,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2298</span>
+            <span class="rating">2295</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1600,7 +1648,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2643</span>
+            <span class="rating">2648</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">38%</span>
@@ -1617,7 +1665,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1644,7 +1692,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1654,7 +1702,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2435</span>
+            <span class="rating">2444</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1671,7 +1719,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1698,7 +1746,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1708,7 +1756,7 @@
             
         <div class="team-row">
             <span class="seed">#14</span>
-            <span class="rating">2482</span>
+            <span class="rating">2496</span>
             <span class="name" title="Tootill Labs">Tootill Labs</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1725,7 +1773,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1752,7 +1800,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1779,7 +1827,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1806,7 +1854,7 @@
             
         <div class="team-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">2</span>
             <span class="team-prob">2%</span>
@@ -1816,7 +1864,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">98%</span>
@@ -1833,7 +1881,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -1843,7 +1891,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">8</span>
             <span class="team-prob">99%</span>
@@ -1860,7 +1908,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1870,7 +1918,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1887,7 +1935,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1897,7 +1945,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -1914,20 +1962,20 @@
             
         <div class="team-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
-            <span class="score">3</span>
-            <span class="team-prob">24%</span>
+            <span class="score">4</span>
+            <span class="team-prob">27%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
-            <span class="score">6</span>
-            <span class="team-prob">76%</span>
+            <span class="score">5</span>
+            <span class="team-prob">73%</span>
         </div>
         
         </div>
@@ -1941,7 +1989,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">80%</span>
@@ -1951,7 +1999,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">5</span>
             <span class="team-prob">20%</span>
@@ -1968,7 +2016,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2298</span>
+            <span class="rating">2295</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1978,7 +2026,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#9</span>
-            <span class="rating">2643</span>
+            <span class="rating">2648</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -2005,7 +2053,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2435</span>
+            <span class="rating">2444</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">4</span>
             <span class="team-prob">36%</span>
@@ -2017,25 +2065,25 @@
             class="match-card"
             data-round="LB-R1"
             style="left:20px; top:798px; width:198px; height:48px;"
-            title="LB-R1-3 | Winner: Silver Street Capital | Loser: Tootill Labs"
+            title="LB-R1-3 | Winner: Tootill Labs | Loser: Silver Street Capital"
         >
             
-        <div class="team-row winner-row">
+        <div class="team-row">
             <span class="seed">#11</span>
             <span class="rating">2464</span>
             <span class="name" title="Silver Street Capital">Silver Street Capital</span>
-            <span class="score">5</span>
-            <span class="team-prob">52%</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
         </div>
         
             <div class="divider"></div>
             
-        <div class="team-row">
+        <div class="team-row winner-row">
             <span class="seed">#14</span>
-            <span class="rating">2482</span>
+            <span class="rating">2496</span>
             <span class="name" title="Tootill Labs">Tootill Labs</span>
-            <span class="score">4</span>
-            <span class="team-prob">48%</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
         </div>
         
         </div>
@@ -2076,7 +2124,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2643</span>
+            <span class="rating">2648</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">38%</span>
@@ -2113,7 +2161,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -2125,25 +2173,25 @@
             class="match-card"
             data-round="LB-R2"
             style="left:266px; top:798px; width:198px; height:48px;"
-            title="LB-R2-3 | Winner: muteki | Loser: Silver Street Capital"
+            title="LB-R2-3 | Winner: muteki | Loser: Tootill Labs"
         >
             
         <div class="team-row">
-            <span class="seed">#11</span>
-            <span class="rating">2464</span>
-            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
-            <span class="score">0</span>
-            <span class="team-prob">0%</span>
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
-            <span class="score">9</span>
-            <span class="team-prob">100%</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
         </div>
         
         </div>
@@ -2167,7 +2215,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -2194,7 +2242,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">5</span>
             <span class="team-prob">64%</span>
@@ -2211,20 +2259,20 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
-            <span class="team-prob">82%</span>
+            <span class="team-prob">77%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2662</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">3</span>
-            <span class="team-prob">18%</span>
+            <span class="team-prob">23%</span>
         </div>
         
         </div>
@@ -2238,7 +2286,7 @@
             
         <div class="team-row">
             <span class="seed">#5</span>
-            <span class="rating">2727</span>
+            <span class="rating">2728</span>
             <span class="name" title="MFF1">MFF1</span>
             <span class="score">2</span>
             <span class="team-prob">2%</span>
@@ -2248,7 +2296,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">98%</span>
@@ -2265,7 +2313,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2731</span>
+            <span class="rating">2724</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -2275,7 +2323,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">8</span>
             <span class="team-prob">99%</span>
@@ -2292,7 +2340,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2937</span>
+            <span class="rating">2940</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">3</span>
             <span class="team-prob">13%</span>
@@ -2302,7 +2350,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">6</span>
             <span class="team-prob">87%</span>
@@ -2319,7 +2367,7 @@
             
         <div class="team-row">
             <span class="seed">#3</span>
-            <span class="rating">3015</span>
+            <span class="rating">3023</span>
             <span class="name" title="Kessoku Band">Kessoku Band</span>
             <span class="score">2</span>
             <span class="team-prob">2%</span>
@@ -2329,7 +2377,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">7</span>
             <span class="team-prob">98%</span>
@@ -2346,7 +2394,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#2</span>
-            <span class="rating">3119</span>
+            <span class="rating">3111</span>
             <span class="name" title="something else">something else</span>
             <span class="score">5</span>
             <span class="team-prob">20%</span>
@@ -2356,7 +2404,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3215</span>
+            <span class="rating">3210</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">80%</span>
@@ -2370,6 +2418,1966 @@
             Displayed scores are predicted from per-game winrate x 9. Gray row percentages are BO9 win probabilities.
         </div>
         
+        </div>
+        
+
+        <div class="champion-bracket-panel" data-champion-panel="1">
+            <div class="stats">
+                <div class="pill">
+                    <div class="k">Champion</div>
+                    <div class="v">Kessoku Band</div>
+                </div>
+                <div class="pill">
+                    <div class="k">Common bracket</div>
+                    <div class="v">26 / 1,000,000</div>
+                </div>
+                <div class="pill">
+                    <div class="k">Observed freq</div>
+                    <div class="v">0.003%</div>
+                </div>
+            </div>
+            
+        <div class="legend">
+            <div class="legend-item"><span class="legend-line"></span> winner advances</div>
+            <div class="legend-item"><span class="legend-line drop"></span> loser drops to lower bracket</div>
+        </div>
+        <div class="viewport">
+            <div class="canvas">
+                
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-R1"
+            style="left:20px; top:0px; width:198px;"
+            title="Click to collapse/expand UB R1"
+        >
+            <span>UB R1</span>
+            <span class="count">(8)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-QF"
+            style="left:266px; top:0px; width:198px;"
+            title="Click to collapse/expand UB QF"
+        >
+            <span>UB QF</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-SF"
+            style="left:512px; top:0px; width:198px;"
+            title="Click to collapse/expand UB SF"
+        >
+            <span>UB SF</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-Final"
+            style="left:758px; top:0px; width:198px;"
+            title="Click to collapse/expand UB Final"
+        >
+            <span>UB Final</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="Grand-Final"
+            style="left:1250px; top:0px; width:198px;"
+            title="Click to collapse/expand GF"
+        >
+            <span>GF</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R1"
+            style="left:20px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R1"
+        >
+            <span>LB R1</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R2"
+            style="left:266px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R2"
+        >
+            <span>LB R2</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R3"
+            style="left:512px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R3"
+        >
+            <span>LB R3</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R4"
+            style="left:758px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R4"
+        >
+            <span>LB R4</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R5"
+            style="left:1004px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R5"
+        >
+            <span>LB R5</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-Final"
+            style="left:1250px; top:622px; width:198px;"
+            title="Click to collapse/expand LB Final"
+        >
+            <span>LB Final</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+                <svg width="1722" height="1046" viewBox="0 0 1722 1046">
+                    <path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 76.0 L 240.0 76.0 L 240.0 110.0 L 266.0 110.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 144.0 L 240.0 144.0 L 240.0 110.0 L 266.0 110.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 212.0 L 240.0 212.0 L 240.0 246.0 L 266.0 246.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 280.0 L 240.0 280.0 L 240.0 246.0 L 266.0 246.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 348.0 L 240.0 348.0 L 240.0 382.0 L 266.0 382.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 416.0 L 240.0 416.0 L 240.0 382.0 L 266.0 382.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 484.0 L 240.0 484.0 L 240.0 518.0 L 266.0 518.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 552.0 L 240.0 552.0 L 240.0 518.0 L 266.0 518.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 110.0 L 486.0 110.0 L 486.0 178.0 L 512.0 178.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 246.0 L 486.0 246.0 L 486.0 178.0 L 512.0 178.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 382.0 L 486.0 382.0 L 486.0 450.0 L 512.0 450.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 518.0 L 486.0 518.0 L 486.0 450.0 L 512.0 450.0"/><path class="advance-line round-line" data-src-round="UB-SF" data-dst-round="UB-Final" d="M 710.0 178.0 L 732.0 178.0 L 732.0 314.0 L 758.0 314.0"/><path class="advance-line round-line" data-src-round="UB-SF" data-dst-round="UB-Final" d="M 710.0 450.0 L 732.0 450.0 L 732.0 314.0 L 758.0 314.0"/><path class="advance-line round-line" data-src-round="UB-Final" data-dst-round="Grand-Final" d="M 956.0 314.0 L 1088.3 314.0 L 1088.3 314.0 L 1250.0 314.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 686.0 L 240.0 686.0 L 240.0 686.0 L 266.0 686.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 754.0 L 240.0 754.0 L 240.0 754.0 L 266.0 754.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 822.0 L 240.0 822.0 L 240.0 822.0 L 266.0 822.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 890.0 L 240.0 890.0 L 240.0 890.0 L 266.0 890.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 686.0 L 486.0 686.0 L 486.0 720.0 L 512.0 720.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 754.0 L 486.0 754.0 L 486.0 720.0 L 512.0 720.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 822.0 L 486.0 822.0 L 486.0 856.0 L 512.0 856.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 890.0 L 486.0 890.0 L 486.0 856.0 L 512.0 856.0"/><path class="advance-line round-line" data-src-round="LB-R3" data-dst-round="LB-R4" d="M 710.0 720.0 L 732.0 720.0 L 732.0 720.0 L 758.0 720.0"/><path class="advance-line round-line" data-src-round="LB-R3" data-dst-round="LB-R4" d="M 710.0 856.0 L 732.0 856.0 L 732.0 856.0 L 758.0 856.0"/><path class="advance-line round-line" data-src-round="LB-R4" data-dst-round="LB-R5" d="M 956.0 720.0 L 978.0 720.0 L 978.0 788.0 L 1004.0 788.0"/><path class="advance-line round-line" data-src-round="LB-R4" data-dst-round="LB-R5" d="M 956.0 856.0 L 978.0 856.0 L 978.0 788.0 L 1004.0 788.0"/><path class="advance-line round-line" data-src-round="LB-R5" data-dst-round="LB-Final" d="M 1202.0 788.0 L 1224.0 788.0 L 1224.0 788.0 L 1250.0 788.0"/><path class="advance-line round-line" data-src-round="LB-Final" data-dst-round="Grand-Final" d="M 1448.0 788.0 L 1476.0 788.0 L 1476.0 314.0 L 1448.0 314.0"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 76.0 L 240.0 76.0 L 240.0 686.0 L 20.0 686.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 144.0 L 240.0 144.0 L 240.0 686.0 L 20.0 686.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 212.0 L 240.0 212.0 L 240.0 754.0 L 20.0 754.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 280.0 L 240.0 280.0 L 240.0 754.0 L 20.0 754.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 348.0 L 240.0 348.0 L 240.0 822.0 L 20.0 822.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 416.0 L 240.0 416.0 L 240.0 822.0 L 20.0 822.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 484.0 L 240.0 484.0 L 240.0 890.0 L 20.0 890.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 552.0 L 240.0 552.0 L 240.0 890.0 L 20.0 890.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 110.0 L 486.0 110.0 L 486.0 686.0 L 266.0 686.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 246.0 L 486.0 246.0 L 486.0 754.0 L 266.0 754.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 382.0 L 486.0 382.0 L 486.0 822.0 L 266.0 822.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 518.0 L 486.0 518.0 L 486.0 890.0 L 266.0 890.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-SF" data-dst-round="LB-R4" d="M 710.0 178.0 L 732.0 178.0 L 732.0 720.0 L 758.0 720.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-SF" data-dst-round="LB-R4" d="M 710.0 450.0 L 732.0 450.0 L 732.0 856.0 L 758.0 856.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-Final" data-dst-round="LB-Final" d="M 956.0 314.0 L 1088.3 314.0 L 1088.3 788.0 L 1250.0 788.0" stroke-dasharray="4 4"/>
+                </svg>
+
+                
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:52px; width:198px; height:48px;"
+            title="UB-R1-1 | Winner: Pantheon | Loser: Mr Worldwide"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#16</span>
+            <span class="rating">2295</span>
+            <span class="name" title="Mr Worldwide">Mr Worldwide</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:120px; width:198px; height:48px;"
+            title="UB-R1-2 | Winner: test | Loser: Beehive"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#9</span>
+            <span class="rating">2648</span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:188px; width:198px; height:48px;"
+            title="UB-R1-3 | Winner: MFF1 | Loser: anime girls against period cramp"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#12</span>
+            <span class="rating">2556</span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:256px; width:198px; height:48px;"
+            title="UB-R1-4 | Winner: bwaaa | Loser: The Cambridge Edge"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#13</span>
+            <span class="rating">2444</span>
+            <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:324px; width:198px; height:48px;"
+            title="UB-R1-5 | Winner: muteki | Loser: Silver Street Capital"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#11</span>
+            <span class="rating">2464</span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:392px; width:198px; height:48px;"
+            title="UB-R1-6 | Winner: Kessoku Band | Loser: Tootill Labs"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:460px; width:198px; height:48px;"
+            title="UB-R1-7 | Winner: randomusergroup | Loser: Grandmaster Oogway"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#10</span>
+            <span class="rating">2487</span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:528px; width:198px; height:48px;"
+            title="UB-R1-8 | Winner: something else | Loser: Axionite Allergic Individuals"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#15</span>
+            <span class="rating">2265</span>
+            <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:86px; width:198px; height:48px;"
+            title="UB-QF-1 | Winner: Pantheon | Loser: test"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:222px; width:198px; height:48px;"
+            title="UB-QF-2 | Winner: bwaaa | Loser: MFF1"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:358px; width:198px; height:48px;"
+            title="UB-QF-3 | Winner: Kessoku Band | Loser: muteki"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">1</span>
+            <span class="team-prob">1%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">8</span>
+            <span class="team-prob">99%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:494px; width:198px; height:48px;"
+            title="UB-QF-4 | Winner: something else | Loser: randomusergroup"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-SF"
+            style="left:512px; top:154px; width:198px; height:48px;"
+            title="UB-SF-1 | Winner: Pantheon | Loser: bwaaa"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-SF"
+            style="left:512px; top:426px; width:198px; height:48px;"
+            title="UB-SF-2 | Winner: Kessoku Band | Loser: something else"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">5</span>
+            <span class="team-prob">27%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">4</span>
+            <span class="team-prob">73%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-Final"
+            style="left:758px; top:290px; width:198px; height:48px;"
+            title="UB-Final | Winner: Kessoku Band | Loser: Pantheon"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">4</span>
+            <span class="team-prob">98%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">5</span>
+            <span class="team-prob">2%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:662px; width:198px; height:48px;"
+            title="LB-R1-1 | Winner: Beehive | Loser: Mr Worldwide"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#16</span>
+            <span class="rating">2295</span>
+            <span class="name" title="Mr Worldwide">Mr Worldwide</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#9</span>
+            <span class="rating">2648</span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:730px; width:198px; height:48px;"
+            title="LB-R1-2 | Winner: anime girls against period cramp | Loser: The Cambridge Edge"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#12</span>
+            <span class="rating">2556</span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="score">5</span>
+            <span class="team-prob">64%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#13</span>
+            <span class="rating">2444</span>
+            <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
+            <span class="score">4</span>
+            <span class="team-prob">36%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:798px; width:198px; height:48px;"
+            title="LB-R1-3 | Winner: Tootill Labs | Loser: Silver Street Capital"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#11</span>
+            <span class="rating">2464</span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:866px; width:198px; height:48px;"
+            title="LB-R1-4 | Winner: Grandmaster Oogway | Loser: Axionite Allergic Individuals"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#10</span>
+            <span class="rating">2487</span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#15</span>
+            <span class="rating">2265</span>
+            <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:662px; width:198px; height:48px;"
+            title="LB-R2-1 | Winner: test | Loser: Beehive"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#9</span>
+            <span class="rating">2648</span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:730px; width:198px; height:48px;"
+            title="LB-R2-2 | Winner: MFF1 | Loser: anime girls against period cramp"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#12</span>
+            <span class="rating">2556</span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:798px; width:198px; height:48px;"
+            title="LB-R2-3 | Winner: muteki | Loser: Tootill Labs"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:866px; width:198px; height:48px;"
+            title="LB-R2-4 | Winner: randomusergroup | Loser: Grandmaster Oogway"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#10</span>
+            <span class="rating">2487</span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R3"
+            style="left:512px; top:696px; width:198px; height:48px;"
+            title="LB-R3-1 | Winner: MFF1 | Loser: test"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">4</span>
+            <span class="team-prob">36%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">5</span>
+            <span class="team-prob">64%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R3"
+            style="left:512px; top:832px; width:198px; height:48px;"
+            title="LB-R3-2 | Winner: muteki | Loser: randomusergroup"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">6</span>
+            <span class="team-prob">77%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">3</span>
+            <span class="team-prob">23%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R4"
+            style="left:758px; top:696px; width:198px; height:48px;"
+            title="LB-R4-1 | Winner: bwaaa | Loser: MFF1"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R4"
+            style="left:758px; top:832px; width:198px; height:48px;"
+            title="LB-R4-2 | Winner: something else | Loser: muteki"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R5"
+            style="left:1004px; top:764px; width:198px; height:48px;"
+            title="LB-R5 | Winner: something else | Loser: bwaaa"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">3</span>
+            <span class="team-prob">12%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">6</span>
+            <span class="team-prob">88%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-Final"
+            style="left:1250px; top:764px; width:198px; height:48px;"
+            title="LB-Final | Winner: something else | Loser: Pantheon"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">5</span>
+            <span class="team-prob">20%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">4</span>
+            <span class="team-prob">80%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="Grand-Final"
+            style="left:1250px; top:290px; width:198px; height:48px;"
+            title="Grand-Final | Winner: Kessoku Band | Loser: something else"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">5</span>
+            <span class="team-prob">27%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">4</span>
+            <span class="team-prob">73%</span>
+        </div>
+        
+        </div>
+        
+            </div>
+        </div>
+        <div class="note">
+            Displayed scores are predicted from per-game winrate x 9. Gray row percentages are BO9 win probabilities.
+        </div>
+        
+        </div>
+        
+
+        <div class="champion-bracket-panel" data-champion-panel="2">
+            <div class="stats">
+                <div class="pill">
+                    <div class="k">Champion</div>
+                    <div class="v">bwaaa</div>
+                </div>
+                <div class="pill">
+                    <div class="k">Common bracket</div>
+                    <div class="v">1 / 1,000,000</div>
+                </div>
+                <div class="pill">
+                    <div class="k">Observed freq</div>
+                    <div class="v">0.000%</div>
+                </div>
+            </div>
+            
+        <div class="legend">
+            <div class="legend-item"><span class="legend-line"></span> winner advances</div>
+            <div class="legend-item"><span class="legend-line drop"></span> loser drops to lower bracket</div>
+        </div>
+        <div class="viewport">
+            <div class="canvas">
+                
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-R1"
+            style="left:20px; top:0px; width:198px;"
+            title="Click to collapse/expand UB R1"
+        >
+            <span>UB R1</span>
+            <span class="count">(8)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-QF"
+            style="left:266px; top:0px; width:198px;"
+            title="Click to collapse/expand UB QF"
+        >
+            <span>UB QF</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-SF"
+            style="left:512px; top:0px; width:198px;"
+            title="Click to collapse/expand UB SF"
+        >
+            <span>UB SF</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="UB-Final"
+            style="left:758px; top:0px; width:198px;"
+            title="Click to collapse/expand UB Final"
+        >
+            <span>UB Final</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="Grand-Final"
+            style="left:1250px; top:0px; width:198px;"
+            title="Click to collapse/expand GF"
+        >
+            <span>GF</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R1"
+            style="left:20px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R1"
+        >
+            <span>LB R1</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R2"
+            style="left:266px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R2"
+        >
+            <span>LB R2</span>
+            <span class="count">(4)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R3"
+            style="left:512px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R3"
+        >
+            <span>LB R3</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R4"
+            style="left:758px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R4"
+        >
+            <span>LB R4</span>
+            <span class="count">(2)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-R5"
+            style="left:1004px; top:622px; width:198px;"
+            title="Click to collapse/expand LB R5"
+        >
+            <span>LB R5</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+        <button
+            type="button"
+            class="round-header round-toggle"
+            data-round="LB-Final"
+            style="left:1250px; top:622px; width:198px;"
+            title="Click to collapse/expand LB Final"
+        >
+            <span>LB Final</span>
+            <span class="count">(1)</span>
+        </button>
+        
+
+                <svg width="1722" height="1046" viewBox="0 0 1722 1046">
+                    <path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 76.0 L 240.0 76.0 L 240.0 110.0 L 266.0 110.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 144.0 L 240.0 144.0 L 240.0 110.0 L 266.0 110.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 212.0 L 240.0 212.0 L 240.0 246.0 L 266.0 246.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 280.0 L 240.0 280.0 L 240.0 246.0 L 266.0 246.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 348.0 L 240.0 348.0 L 240.0 382.0 L 266.0 382.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 416.0 L 240.0 416.0 L 240.0 382.0 L 266.0 382.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 484.0 L 240.0 484.0 L 240.0 518.0 L 266.0 518.0"/><path class="advance-line round-line" data-src-round="UB-R1" data-dst-round="UB-QF" d="M 218.0 552.0 L 240.0 552.0 L 240.0 518.0 L 266.0 518.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 110.0 L 486.0 110.0 L 486.0 178.0 L 512.0 178.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 246.0 L 486.0 246.0 L 486.0 178.0 L 512.0 178.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 382.0 L 486.0 382.0 L 486.0 450.0 L 512.0 450.0"/><path class="advance-line round-line" data-src-round="UB-QF" data-dst-round="UB-SF" d="M 464.0 518.0 L 486.0 518.0 L 486.0 450.0 L 512.0 450.0"/><path class="advance-line round-line" data-src-round="UB-SF" data-dst-round="UB-Final" d="M 710.0 178.0 L 732.0 178.0 L 732.0 314.0 L 758.0 314.0"/><path class="advance-line round-line" data-src-round="UB-SF" data-dst-round="UB-Final" d="M 710.0 450.0 L 732.0 450.0 L 732.0 314.0 L 758.0 314.0"/><path class="advance-line round-line" data-src-round="UB-Final" data-dst-round="Grand-Final" d="M 956.0 314.0 L 1088.3 314.0 L 1088.3 314.0 L 1250.0 314.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 686.0 L 240.0 686.0 L 240.0 686.0 L 266.0 686.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 754.0 L 240.0 754.0 L 240.0 754.0 L 266.0 754.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 822.0 L 240.0 822.0 L 240.0 822.0 L 266.0 822.0"/><path class="advance-line round-line" data-src-round="LB-R1" data-dst-round="LB-R2" d="M 218.0 890.0 L 240.0 890.0 L 240.0 890.0 L 266.0 890.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 686.0 L 486.0 686.0 L 486.0 720.0 L 512.0 720.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 754.0 L 486.0 754.0 L 486.0 720.0 L 512.0 720.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 822.0 L 486.0 822.0 L 486.0 856.0 L 512.0 856.0"/><path class="advance-line round-line" data-src-round="LB-R2" data-dst-round="LB-R3" d="M 464.0 890.0 L 486.0 890.0 L 486.0 856.0 L 512.0 856.0"/><path class="advance-line round-line" data-src-round="LB-R3" data-dst-round="LB-R4" d="M 710.0 720.0 L 732.0 720.0 L 732.0 720.0 L 758.0 720.0"/><path class="advance-line round-line" data-src-round="LB-R3" data-dst-round="LB-R4" d="M 710.0 856.0 L 732.0 856.0 L 732.0 856.0 L 758.0 856.0"/><path class="advance-line round-line" data-src-round="LB-R4" data-dst-round="LB-R5" d="M 956.0 720.0 L 978.0 720.0 L 978.0 788.0 L 1004.0 788.0"/><path class="advance-line round-line" data-src-round="LB-R4" data-dst-round="LB-R5" d="M 956.0 856.0 L 978.0 856.0 L 978.0 788.0 L 1004.0 788.0"/><path class="advance-line round-line" data-src-round="LB-R5" data-dst-round="LB-Final" d="M 1202.0 788.0 L 1224.0 788.0 L 1224.0 788.0 L 1250.0 788.0"/><path class="advance-line round-line" data-src-round="LB-Final" data-dst-round="Grand-Final" d="M 1448.0 788.0 L 1476.0 788.0 L 1476.0 314.0 L 1448.0 314.0"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 76.0 L 240.0 76.0 L 240.0 686.0 L 20.0 686.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 144.0 L 240.0 144.0 L 240.0 686.0 L 20.0 686.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 212.0 L 240.0 212.0 L 240.0 754.0 L 20.0 754.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 280.0 L 240.0 280.0 L 240.0 754.0 L 20.0 754.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 348.0 L 240.0 348.0 L 240.0 822.0 L 20.0 822.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 416.0 L 240.0 416.0 L 240.0 822.0 L 20.0 822.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 484.0 L 240.0 484.0 L 240.0 890.0 L 20.0 890.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-R1" data-dst-round="LB-R1" d="M 218.0 552.0 L 240.0 552.0 L 240.0 890.0 L 20.0 890.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 110.0 L 486.0 110.0 L 486.0 686.0 L 266.0 686.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 246.0 L 486.0 246.0 L 486.0 754.0 L 266.0 754.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 382.0 L 486.0 382.0 L 486.0 822.0 L 266.0 822.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-QF" data-dst-round="LB-R2" d="M 464.0 518.0 L 486.0 518.0 L 486.0 890.0 L 266.0 890.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-SF" data-dst-round="LB-R4" d="M 710.0 178.0 L 732.0 178.0 L 732.0 720.0 L 758.0 720.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-SF" data-dst-round="LB-R4" d="M 710.0 450.0 L 732.0 450.0 L 732.0 856.0 L 758.0 856.0" stroke-dasharray="4 4"/><path class="drop-line round-line" data-src-round="UB-Final" data-dst-round="LB-Final" d="M 956.0 314.0 L 1088.3 314.0 L 1088.3 788.0 L 1250.0 788.0" stroke-dasharray="4 4"/>
+                </svg>
+
+                
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:52px; width:198px; height:48px;"
+            title="UB-R1-1 | Winner: Pantheon | Loser: Mr Worldwide"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#16</span>
+            <span class="rating">2295</span>
+            <span class="name" title="Mr Worldwide">Mr Worldwide</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:120px; width:198px; height:48px;"
+            title="UB-R1-2 | Winner: test | Loser: Beehive"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#9</span>
+            <span class="rating">2648</span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:188px; width:198px; height:48px;"
+            title="UB-R1-3 | Winner: MFF1 | Loser: anime girls against period cramp"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#12</span>
+            <span class="rating">2556</span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:256px; width:198px; height:48px;"
+            title="UB-R1-4 | Winner: bwaaa | Loser: The Cambridge Edge"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#13</span>
+            <span class="rating">2444</span>
+            <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:324px; width:198px; height:48px;"
+            title="UB-R1-5 | Winner: muteki | Loser: Silver Street Capital"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#11</span>
+            <span class="rating">2464</span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:392px; width:198px; height:48px;"
+            title="UB-R1-6 | Winner: Kessoku Band | Loser: Tootill Labs"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:460px; width:198px; height:48px;"
+            title="UB-R1-7 | Winner: randomusergroup | Loser: Grandmaster Oogway"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#10</span>
+            <span class="rating">2487</span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-R1"
+            style="left:20px; top:528px; width:198px; height:48px;"
+            title="UB-R1-8 | Winner: something else | Loser: Axionite Allergic Individuals"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#15</span>
+            <span class="rating">2265</span>
+            <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:86px; width:198px; height:48px;"
+            title="UB-QF-1 | Winner: Pantheon | Loser: test"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:222px; width:198px; height:48px;"
+            title="UB-QF-2 | Winner: bwaaa | Loser: MFF1"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:358px; width:198px; height:48px;"
+            title="UB-QF-3 | Winner: Kessoku Band | Loser: muteki"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">1</span>
+            <span class="team-prob">1%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">8</span>
+            <span class="team-prob">99%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-QF"
+            style="left:266px; top:494px; width:198px; height:48px;"
+            title="UB-QF-4 | Winner: something else | Loser: randomusergroup"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-SF"
+            style="left:512px; top:154px; width:198px; height:48px;"
+            title="UB-SF-1 | Winner: bwaaa | Loser: Pantheon"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">4</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">5</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-SF"
+            style="left:512px; top:426px; width:198px; height:48px;"
+            title="UB-SF-2 | Winner: Kessoku Band | Loser: something else"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">5</span>
+            <span class="team-prob">27%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">4</span>
+            <span class="team-prob">73%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="UB-Final"
+            style="left:758px; top:290px; width:198px; height:48px;"
+            title="UB-Final | Winner: bwaaa | Loser: Kessoku Band"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">5</span>
+            <span class="team-prob">13%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">4</span>
+            <span class="team-prob">87%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:662px; width:198px; height:48px;"
+            title="LB-R1-1 | Winner: Beehive | Loser: Mr Worldwide"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#16</span>
+            <span class="rating">2295</span>
+            <span class="name" title="Mr Worldwide">Mr Worldwide</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#9</span>
+            <span class="rating">2648</span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:730px; width:198px; height:48px;"
+            title="LB-R1-2 | Winner: anime girls against period cramp | Loser: The Cambridge Edge"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#12</span>
+            <span class="rating">2556</span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="score">5</span>
+            <span class="team-prob">64%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#13</span>
+            <span class="rating">2444</span>
+            <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
+            <span class="score">4</span>
+            <span class="team-prob">36%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:798px; width:198px; height:48px;"
+            title="LB-R1-3 | Winner: Tootill Labs | Loser: Silver Street Capital"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#11</span>
+            <span class="rating">2464</span>
+            <span class="name" title="Silver Street Capital">Silver Street Capital</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R1"
+            style="left:20px; top:866px; width:198px; height:48px;"
+            title="LB-R1-4 | Winner: Grandmaster Oogway | Loser: Axionite Allergic Individuals"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#10</span>
+            <span class="rating">2487</span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#15</span>
+            <span class="rating">2265</span>
+            <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:662px; width:198px; height:48px;"
+            title="LB-R2-1 | Winner: test | Loser: Beehive"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#9</span>
+            <span class="rating">2648</span>
+            <span class="name" title="Beehive">Beehive</span>
+            <span class="score">4</span>
+            <span class="team-prob">38%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">5</span>
+            <span class="team-prob">62%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:730px; width:198px; height:48px;"
+            title="LB-R2-2 | Winner: MFF1 | Loser: anime girls against period cramp"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#12</span>
+            <span class="rating">2556</span>
+            <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:798px; width:198px; height:48px;"
+            title="LB-R2-3 | Winner: muteki | Loser: Tootill Labs"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#14</span>
+            <span class="rating">2496</span>
+            <span class="name" title="Tootill Labs">Tootill Labs</span>
+            <span class="score">2</span>
+            <span class="team-prob">2%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">7</span>
+            <span class="team-prob">98%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R2"
+            style="left:266px; top:866px; width:198px; height:48px;"
+            title="LB-R2-4 | Winner: randomusergroup | Loser: Grandmaster Oogway"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#10</span>
+            <span class="rating">2487</span>
+            <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R3"
+            style="left:512px; top:696px; width:198px; height:48px;"
+            title="LB-R3-1 | Winner: test | Loser: MFF1"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">5</span>
+            <span class="team-prob">36%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#5</span>
+            <span class="rating">2728</span>
+            <span class="name" title="MFF1">MFF1</span>
+            <span class="score">4</span>
+            <span class="team-prob">64%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R3"
+            style="left:512px; top:832px; width:198px; height:48px;"
+            title="LB-R3-2 | Winner: muteki | Loser: randomusergroup"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">6</span>
+            <span class="team-prob">77%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#7</span>
+            <span class="rating">2669</span>
+            <span class="name" title="randomusergroup">randomusergroup</span>
+            <span class="score">3</span>
+            <span class="team-prob">23%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R4"
+            style="left:758px; top:696px; width:198px; height:48px;"
+            title="LB-R4-1 | Winner: Pantheon | Loser: test"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#8</span>
+            <span class="rating">2622</span>
+            <span class="name" title="test">test</span>
+            <span class="score">0</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">9</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R4"
+            style="left:758px; top:832px; width:198px; height:48px;"
+            title="LB-R4-2 | Winner: something else | Loser: muteki"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#6</span>
+            <span class="rating">2724</span>
+            <span class="name" title="muteki">muteki</span>
+            <span class="score">1</span>
+            <span class="team-prob">0%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">8</span>
+            <span class="team-prob">100%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-R5"
+            style="left:1004px; top:764px; width:198px; height:48px;"
+            title="LB-R5 | Winner: something else | Loser: Pantheon"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#1</span>
+            <span class="rating">3210</span>
+            <span class="name" title="Pantheon">Pantheon</span>
+            <span class="score">4</span>
+            <span class="team-prob">80%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">5</span>
+            <span class="team-prob">20%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="LB-Final"
+            style="left:1250px; top:764px; width:198px; height:48px;"
+            title="LB-Final | Winner: Kessoku Band | Loser: something else"
+        >
+            
+        <div class="team-row">
+            <span class="seed">#2</span>
+            <span class="rating">3111</span>
+            <span class="name" title="something else">something else</span>
+            <span class="score">4</span>
+            <span class="team-prob">73%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row winner-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">5</span>
+            <span class="team-prob">27%</span>
+        </div>
+        
+        </div>
+        
+        <div
+            class="match-card"
+            data-round="Grand-Final"
+            style="left:1250px; top:290px; width:198px; height:48px;"
+            title="Grand-Final | Winner: bwaaa | Loser: Kessoku Band"
+        >
+            
+        <div class="team-row winner-row">
+            <span class="seed">#4</span>
+            <span class="rating">2940</span>
+            <span class="name" title="bwaaa">bwaaa</span>
+            <span class="score">5</span>
+            <span class="team-prob">13%</span>
+        </div>
+        
+            <div class="divider"></div>
+            
+        <div class="team-row">
+            <span class="seed">#3</span>
+            <span class="rating">3023</span>
+            <span class="name" title="Kessoku Band">Kessoku Band</span>
+            <span class="score">4</span>
+            <span class="team-prob">87%</span>
+        </div>
+        
+        </div>
+        
+            </div>
+        </div>
+        <div class="note">
+            Displayed scores are predicted from per-game winrate x 9. Gray row percentages are BO9 win probabilities.
+        </div>
+        
+        </div>
+        
     </section>
 
     <section class="tab-panel" data-panel="results">
@@ -2377,7 +4385,7 @@
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Team</th>
+                        <th class="text-col">Team</th>
                         <th>Win%</th>
                         <th>Top3</th>
                         <th>1st</th>
@@ -2393,11 +4401,11 @@
                 <tbody>
                     
         <tr>
-            <th>Pantheon</th>
-            <td>91.6%</td>
+            <th class="text-col">Pantheon</th>
+            <td>91.9%</td>
             <td>100.0%</td>
-            <td>91.6%</td>
-            <td>8.1%</td>
+            <td>91.9%</td>
+            <td>7.8%</td>
             <td>0.3%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2408,13 +4416,13 @@
         
 
         <tr>
-            <th>something else</th>
-            <td>8.3%</td>
-            <td>97.1%</td>
-            <td>8.3%</td>
-            <td>69.9%</td>
-            <td>18.9%</td>
-            <td>2.9%</td>
+            <th class="text-col">something else</th>
+            <td>8.1%</td>
+            <td>96.8%</td>
+            <td>8.1%</td>
+            <td>67.9%</td>
+            <td>20.9%</td>
+            <td>3.2%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2423,14 +4431,14 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
+            <th class="text-col">Kessoku Band</th>
             <td>0.1%</td>
-            <td>89.5%</td>
+            <td>89.9%</td>
             <td>0.1%</td>
-            <td>20.7%</td>
-            <td>68.8%</td>
-            <td>10.0%</td>
-            <td>0.5%</td>
+            <td>22.9%</td>
+            <td>66.9%</td>
+            <td>9.6%</td>
+            <td>0.4%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2438,12 +4446,12 @@
         
 
         <tr>
-            <th>bwaaa</th>
+            <th class="text-col">bwaaa</th>
             <td>0.0%</td>
-            <td>13.3%</td>
+            <td>13.2%</td>
             <td>0.0%</td>
             <td>1.4%</td>
-            <td>11.9%</td>
+            <td>11.8%</td>
             <td>85.7%</td>
             <td>1.0%</td>
             <td>0.0%</td>
@@ -2453,52 +4461,52 @@
         
 
         <tr>
-            <th>muteki</th>
-            <td>0.0%</td>
-            <td>0.1%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.1%</td>
-            <td>0.4%</td>
-            <td>80.8%</td>
-            <td>17.8%</td>
-            <td>0.9%</td>
-            <td>0.0%</td>
-        </tr>
-        
-
-        <tr>
-            <th>MFF1</th>
+            <th class="text-col">MFF1</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>1.0%</td>
-            <td>50.2%</td>
-            <td>48.8%</td>
+            <td>50.1%</td>
+            <td>48.9%</td>
             <td>0.0%</td>
             <td>0.0%</td>
         </tr>
         
 
         <tr>
-            <th>randomusergroup</th>
+            <th class="text-col">muteki</th>
+            <td>0.0%</td>
+            <td>0.1%</td>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>0.1%</td>
+            <td>0.4%</td>
+            <td>76.2%</td>
+            <td>22.2%</td>
+            <td>1.2%</td>
+            <td>0.0%</td>
+        </tr>
+        
+
+        <tr>
+            <th class="text-col">randomusergroup</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
-            <td>18.7%</td>
-            <td>81.2%</td>
+            <td>23.3%</td>
+            <td>76.6%</td>
             <td>0.1%</td>
             <td>0.0%</td>
         </tr>
         
 
         <tr>
-            <th>Beehive</th>
+            <th class="text-col">Beehive</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2506,14 +4514,14 @@
             <td>0.0%</td>
             <td>0.0%</td>
             <td>27.3%</td>
-            <td>10.7%</td>
-            <td>62.0%</td>
+            <td>10.6%</td>
+            <td>62.1%</td>
             <td>0.0%</td>
         </tr>
         
 
         <tr>
-            <th>test</th>
+            <th class="text-col">test</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2522,13 +4530,13 @@
             <td>0.0%</td>
             <td>21.6%</td>
             <td>40.5%</td>
-            <td>38.0%</td>
+            <td>37.9%</td>
             <td>0.0%</td>
         </tr>
         
 
         <tr>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2538,12 +4546,27 @@
             <td>0.0%</td>
             <td>0.0%</td>
             <td>64.4%</td>
-            <td>35.6%</td>
+            <td>35.5%</td>
         </tr>
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
+            <th class="text-col">Tootill Labs</th>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>0.0%</td>
+            <td>1.2%</td>
+            <td>60.5%</td>
+            <td>38.3%</td>
+        </tr>
+        
+
+        <tr>
+            <th class="text-col">Grandmaster Oogway</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2558,7 +4581,7 @@
         
 
         <tr>
-            <th>Tootill Labs</th>
+            <th class="text-col">Silver Street Capital</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2566,14 +4589,14 @@
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
-            <td>0.9%</td>
-            <td>46.9%</td>
-            <td>52.2%</td>
+            <td>0.0%</td>
+            <td>38.3%</td>
+            <td>61.7%</td>
         </tr>
         
 
         <tr>
-            <th>Silver Street Capital</th>
+            <th class="text-col">The Cambridge Edge</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2582,28 +4605,13 @@
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
-            <td>52.2%</td>
-            <td>47.8%</td>
+            <td>35.5%</td>
+            <td>64.5%</td>
         </tr>
         
 
         <tr>
-            <th>The Cambridge Edge</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>35.6%</td>
-            <td>64.4%</td>
-        </tr>
-        
-
-        <tr>
-            <th>Mr Worldwide</th>
+            <th class="text-col">Mr Worldwide</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2618,7 +4626,7 @@
         
 
         <tr>
-            <th>Axionite Allergic Individuals</th>
+            <th class="text-col">Axionite Allergic Individuals</th>
             <td>0.0%</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -2641,8 +4649,8 @@
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Team A</th>
-                        <th>Team B</th>
+                        <th class="text-col">Team A</th>
+                        <th class="text-col">Team B</th>
                         <th>Games</th>
                         <th>Game Win% A</th>
                         <th>BO9 Win% A</th>
@@ -2651,17 +4659,17 @@
                 <tbody>
                     
         <tr>
-            <th>Silver Street Capital</th>
-            <th>Tootill Labs</th>
-            <td>56-54</td>
-            <td>50.9%</td>
-            <td>52.2%</td>
+            <th class="text-col">Silver Street Capital</th>
+            <th class="text-col">Tootill Labs</th>
+            <td>61-74</td>
+            <td>45.2%</td>
+            <td>38.3%</td>
         </tr>
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>Pantheon</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">Pantheon</th>
             <td>18-72</td>
             <td>20.0%</td>
             <td>2.0%</td>
@@ -2669,8 +4677,8 @@
         
 
         <tr>
-            <th>Pantheon</th>
-            <th>something else</th>
+            <th class="text-col">Pantheon</th>
+            <th class="text-col">something else</th>
             <td>57-33</td>
             <td>63.3%</td>
             <td>79.9%</td>
@@ -2678,8 +4686,17 @@
         
 
         <tr>
-            <th>bwaaa</th>
-            <th>something else</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">something else</th>
+            <td>34-51</td>
+            <td>40.0%</td>
+            <td>26.7%</td>
+        </tr>
+        
+
+        <tr>
+            <th class="text-col">bwaaa</th>
+            <th class="text-col">something else</th>
             <td>27-58</td>
             <td>31.8%</td>
             <td>12.2%</td>
@@ -2687,8 +4704,8 @@
         
 
         <tr>
-            <th>muteki</th>
-            <th>something else</th>
+            <th class="text-col">muteki</th>
+            <th class="text-col">something else</th>
             <td>6-79</td>
             <td>7.1%</td>
             <td>0.0%</td>
@@ -2696,8 +4713,8 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>bwaaa</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">bwaaa</th>
             <td>54-26</td>
             <td>67.5%</td>
             <td>86.8%</td>
@@ -2705,8 +4722,8 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>muteki</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">muteki</th>
             <td>67-13</td>
             <td>83.8%</td>
             <td>99.2%</td>
@@ -2714,17 +4731,8 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>something else</th>
-            <td>31-49</td>
-            <td>38.8%</td>
-            <td>24.1%</td>
-        </tr>
-        
-
-        <tr>
-            <th>Pantheon</th>
-            <th>bwaaa</th>
+            <th class="text-col">Pantheon</th>
+            <th class="text-col">bwaaa</th>
             <td>73-7</td>
             <td>91.2%</td>
             <td>100.0%</td>
@@ -2732,8 +4740,8 @@
         
 
         <tr>
-            <th>The Cambridge Edge</th>
-            <th>Tootill Labs</th>
+            <th class="text-col">The Cambridge Edge</th>
+            <th class="text-col">Tootill Labs</th>
             <td>40-40</td>
             <td>50.0%</td>
             <td>50.0%</td>
@@ -2741,8 +4749,8 @@
         
 
         <tr>
-            <th>bwaaa</th>
-            <th>muteki</th>
+            <th class="text-col">bwaaa</th>
+            <th class="text-col">muteki</th>
             <td>54-26</td>
             <td>67.5%</td>
             <td>86.8%</td>
@@ -2750,8 +4758,8 @@
         
 
         <tr>
-            <th>Pantheon</th>
-            <th>muteki</th>
+            <th class="text-col">Pantheon</th>
+            <th class="text-col">muteki</th>
             <td>67-8</td>
             <td>89.3%</td>
             <td>99.9%</td>
@@ -2759,8 +4767,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>Pantheon</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">Pantheon</th>
             <td>3-67</td>
             <td>4.3%</td>
             <td>0.0%</td>
@@ -2768,8 +4776,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>something else</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">something else</th>
             <td>2-68</td>
             <td>2.9%</td>
             <td>0.0%</td>
@@ -2777,8 +4785,8 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>MFF1</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">MFF1</th>
             <td>58-7</td>
             <td>89.2%</td>
             <td>99.9%</td>
@@ -2786,8 +4794,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>test</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">test</th>
             <td>27-33</td>
             <td>45.0%</td>
             <td>37.9%</td>
@@ -2795,8 +4803,8 @@
         
 
         <tr>
-            <th>Silver Street Capital</th>
-            <th>The Cambridge Edge</th>
+            <th class="text-col">Silver Street Capital</th>
+            <th class="text-col">The Cambridge Edge</th>
             <td>33-27</td>
             <td>55.0%</td>
             <td>62.1%</td>
@@ -2804,8 +4812,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>muteki</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">muteki</th>
             <td>30-25</td>
             <td>54.5%</td>
             <td>61.1%</td>
@@ -2813,8 +4821,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>Silver Street Capital</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">Silver Street Capital</th>
             <td>30-25</td>
             <td>54.5%</td>
             <td>61.1%</td>
@@ -2822,8 +4830,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>bwaaa</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">bwaaa</th>
             <td>11-44</td>
             <td>20.0%</td>
             <td>2.0%</td>
@@ -2831,8 +4839,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>randomusergroup</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">randomusergroup</th>
             <td>32-23</td>
             <td>58.2%</td>
             <td>69.4%</td>
@@ -2840,8 +4848,8 @@
         
 
         <tr>
-            <th>bwaaa</th>
-            <th>randomusergroup</th>
+            <th class="text-col">bwaaa</th>
+            <th class="text-col">randomusergroup</th>
             <td>47-8</td>
             <td>85.5%</td>
             <td>99.5%</td>
@@ -2849,8 +4857,8 @@
         
 
         <tr>
-            <th>Axionite Allergic Individuals</th>
-            <th>Mr Worldwide</th>
+            <th class="text-col">Axionite Allergic Individuals</th>
+            <th class="text-col">Mr Worldwide</th>
             <td>16-34</td>
             <td>32.0%</td>
             <td>12.5%</td>
@@ -2858,8 +4866,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>Kessoku Band</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">Kessoku Band</th>
             <td>8-42</td>
             <td>16.0%</td>
             <td>0.7%</td>
@@ -2867,8 +4875,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>test</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">test</th>
             <td>28-22</td>
             <td>56.0%</td>
             <td>64.5%</td>
@@ -2876,8 +4884,8 @@
         
 
         <tr>
-            <th>Pantheon</th>
-            <th>randomusergroup</th>
+            <th class="text-col">Pantheon</th>
+            <th class="text-col">randomusergroup</th>
             <td>45-5</td>
             <td>90.0%</td>
             <td>99.9%</td>
@@ -2885,8 +4893,8 @@
         
 
         <tr>
-            <th>The Cambridge Edge</th>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">The Cambridge Edge</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>22-28</td>
             <td>44.0%</td>
             <td>35.5%</td>
@@ -2894,8 +4902,8 @@
         
 
         <tr>
-            <th>bwaaa</th>
-            <th>test</th>
+            <th class="text-col">bwaaa</th>
+            <th class="text-col">test</th>
             <td>47-3</td>
             <td>94.0%</td>
             <td>100.0%</td>
@@ -2903,8 +4911,17 @@
         
 
         <tr>
-            <th>muteki</th>
-            <th>test</th>
+            <th class="text-col">muteki</th>
+            <th class="text-col">randomusergroup</th>
+            <td>31-19</td>
+            <td>62.0%</td>
+            <td>77.4%</td>
+        </tr>
+        
+
+        <tr>
+            <th class="text-col">muteki</th>
+            <th class="text-col">test</th>
             <td>29-21</td>
             <td>58.0%</td>
             <td>69.0%</td>
@@ -2912,8 +4929,17 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>randomusergroup</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">Pantheon</th>
+            <td>5-40</td>
+            <td>11.1%</td>
+            <td>0.1%</td>
+        </tr>
+        
+
+        <tr>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">randomusergroup</th>
             <td>11-34</td>
             <td>24.4%</td>
             <td>4.5%</td>
@@ -2921,8 +4947,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>The Cambridge Edge</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">The Cambridge Edge</th>
             <td>34-11</td>
             <td>75.6%</td>
             <td>95.5%</td>
@@ -2930,8 +4956,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>Tootill Labs</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">Tootill Labs</th>
             <td>22-23</td>
             <td>48.9%</td>
             <td>47.3%</td>
@@ -2939,8 +4965,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>30-15</td>
             <td>66.7%</td>
             <td>85.5%</td>
@@ -2948,8 +4974,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>muteki</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">muteki</th>
             <td>27-18</td>
             <td>60.0%</td>
             <td>73.3%</td>
@@ -2957,8 +4983,8 @@
         
 
         <tr>
-            <th>Silver Street Capital</th>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">Silver Street Capital</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>18-27</td>
             <td>40.0%</td>
             <td>26.7%</td>
@@ -2966,17 +4992,8 @@
         
 
         <tr>
-            <th>muteki</th>
-            <th>randomusergroup</th>
-            <td>29-16</td>
-            <td>64.4%</td>
-            <td>81.9%</td>
-        </tr>
-        
-
-        <tr>
-            <th>randomusergroup</th>
-            <th>something else</th>
+            <th class="text-col">randomusergroup</th>
+            <th class="text-col">something else</th>
             <td>1-44</td>
             <td>2.2%</td>
             <td>0.0%</td>
@@ -2984,8 +5001,8 @@
         
 
         <tr>
-            <th>randomusergroup</th>
-            <th>test</th>
+            <th class="text-col">randomusergroup</th>
+            <th class="text-col">test</th>
             <td>14-31</td>
             <td>31.1%</td>
             <td>11.3%</td>
@@ -2993,8 +5010,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>MFF1</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">MFF1</th>
             <td>24-16</td>
             <td>60.0%</td>
             <td>73.3%</td>
@@ -3002,17 +5019,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>Pantheon</th>
-            <td>4-36</td>
-            <td>10.0%</td>
-            <td>0.1%</td>
-        </tr>
-        
-
-        <tr>
-            <th>Tootill Labs</th>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">Tootill Labs</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>15-25</td>
             <td>37.5%</td>
             <td>21.7%</td>
@@ -3020,8 +5028,8 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>test</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">test</th>
             <td>32-3</td>
             <td>91.4%</td>
             <td>100.0%</td>
@@ -3029,8 +5037,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>something else</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">something else</th>
             <td>1-29</td>
             <td>3.3%</td>
             <td>0.0%</td>
@@ -3038,8 +5046,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>17-8</td>
             <td>68.0%</td>
             <td>87.5%</td>
@@ -3047,8 +5055,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>test</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">test</th>
             <td>10-15</td>
             <td>40.0%</td>
             <td>26.7%</td>
@@ -3056,8 +5064,8 @@
         
 
         <tr>
-            <th>Kessoku Band</th>
-            <th>randomusergroup</th>
+            <th class="text-col">Kessoku Band</th>
+            <th class="text-col">randomusergroup</th>
             <td>23-2</td>
             <td>92.0%</td>
             <td>100.0%</td>
@@ -3065,8 +5073,8 @@
         
 
         <tr>
-            <th>Pantheon</th>
-            <th>test</th>
+            <th class="text-col">Pantheon</th>
+            <th class="text-col">test</th>
             <td>24-1</td>
             <td>96.0%</td>
             <td>100.0%</td>
@@ -3074,8 +5082,8 @@
         
 
         <tr>
-            <th>something else</th>
-            <th>test</th>
+            <th class="text-col">something else</th>
+            <th class="text-col">test</th>
             <td>22-3</td>
             <td>88.0%</td>
             <td>99.8%</td>
@@ -3083,8 +5091,8 @@
         
 
         <tr>
-            <th>anime girls against period cramp</th>
-            <th>randomusergroup</th>
+            <th class="text-col">anime girls against period cramp</th>
+            <th class="text-col">randomusergroup</th>
             <td>10-10</td>
             <td>50.0%</td>
             <td>50.0%</td>
@@ -3092,8 +5100,8 @@
         
 
         <tr>
-            <th>anime girls against period cramp</th>
-            <th>test</th>
+            <th class="text-col">anime girls against period cramp</th>
+            <th class="text-col">test</th>
             <td>10-10</td>
             <td>50.0%</td>
             <td>50.0%</td>
@@ -3101,8 +5109,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>Grandmaster Oogway</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">Grandmaster Oogway</th>
             <td>9-6</td>
             <td>60.0%</td>
             <td>73.3%</td>
@@ -3110,8 +5118,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>bwaaa</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">bwaaa</th>
             <td>0-15</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -3119,8 +5127,8 @@
         
 
         <tr>
-            <th>Tootill Labs</th>
-            <th>muteki</th>
+            <th class="text-col">Tootill Labs</th>
+            <th class="text-col">muteki</th>
             <td>3-12</td>
             <td>20.0%</td>
             <td>2.0%</td>
@@ -3128,8 +5136,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>MFF1</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">MFF1</th>
             <td>0-10</td>
             <td>0.0%</td>
             <td>0.0%</td>
@@ -3137,8 +5145,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>randomusergroup</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">randomusergroup</th>
             <td>1-9</td>
             <td>10.0%</td>
             <td>0.1%</td>
@@ -3146,8 +5154,8 @@
         
 
         <tr>
-            <th>Silver Street Capital</th>
-            <th>randomusergroup</th>
+            <th class="text-col">Silver Street Capital</th>
+            <th class="text-col">randomusergroup</th>
             <td>3-7</td>
             <td>30.0%</td>
             <td>9.9%</td>
@@ -3155,8 +5163,8 @@
         
 
         <tr>
-            <th>Beehive</th>
-            <th>Silver Street Capital</th>
+            <th class="text-col">Beehive</th>
+            <th class="text-col">Silver Street Capital</th>
             <td>1-4</td>
             <td>20.0%</td>
             <td>2.0%</td>
@@ -3164,8 +5172,8 @@
         
 
         <tr>
-            <th>Grandmaster Oogway</th>
-            <th>muteki</th>
+            <th class="text-col">Grandmaster Oogway</th>
+            <th class="text-col">muteki</th>
             <td>4-1</td>
             <td>80.0%</td>
             <td>98.0%</td>
@@ -3173,8 +5181,8 @@
         
 
         <tr>
-            <th>MFF1</th>
-            <th>anime girls against period cramp</th>
+            <th class="text-col">MFF1</th>
+            <th class="text-col">anime girls against period cramp</th>
             <td>5-0</td>
             <td>100.0%</td>
             <td>100.0%</td>
@@ -3182,8 +5190,8 @@
         
 
         <tr>
-            <th>anime girls against period cramp</th>
-            <th>bwaaa</th>
+            <th class="text-col">anime girls against period cramp</th>
+            <th class="text-col">bwaaa</th>
             <td>1-4</td>
             <td>20.0%</td>
             <td>2.0%</td>
@@ -3199,17 +5207,32 @@
 (() => {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabPanels = document.querySelectorAll('.tab-panel');
+    const championSelect = document.querySelector('[data-champion-select]');
+    const championPanels = document.querySelectorAll('.champion-bracket-panel');
     const toggles = document.querySelectorAll('.round-toggle');
+
+    function setTab(tab) {
+        tabButtons.forEach(item => item.classList.toggle('active', item.dataset.tab === tab));
+        tabPanels.forEach(panel => {
+            panel.classList.toggle('active', panel.dataset.panel === tab);
+        });
+    }
 
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const tab = btn.dataset.tab;
-            tabButtons.forEach(item => item.classList.toggle('active', item === btn));
-            tabPanels.forEach(panel => {
-                panel.classList.toggle('active', panel.dataset.panel === tab);
-            });
+            setTab(btn.dataset.tab);
         });
     });
+
+    if (championSelect) {
+        championSelect.addEventListener('change', () => {
+            const selected = championSelect.value;
+            championPanels.forEach(panel => {
+                panel.classList.toggle('active', panel.dataset.championPanel === selected);
+            });
+            setTab('alt-bracket');
+        });
+    }
 
     function updateRound(scope, roundKey, collapsed) {
         scope.querySelectorAll(`.match-card[data-round="${roundKey}"]`)
