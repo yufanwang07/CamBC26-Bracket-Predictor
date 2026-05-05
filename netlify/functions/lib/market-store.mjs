@@ -113,11 +113,16 @@ export function getSession(event) {
 
 export async function marketStore() {
   const { getStore } = await import("@netlify/blobs");
-  return getStore({ name: STORE_NAME, consistency: "strong" });
+  const siteID = process.env.NETLIFY_BLOBS_SITE_ID || process.env.SITE_ID || process.env.NETLIFY_SITE_ID;
+  const token = process.env.NETLIFY_BLOBS_TOKEN || process.env.NETLIFY_AUTH_TOKEN;
+  if (siteID && token) {
+    return getStore(STORE_NAME, { siteID, token });
+  }
+  return getStore(STORE_NAME);
 }
 
 export async function getAccount(userId) {
-  return await (await marketStore()).get(`account:${userId}`, { type: "json" });
+  return await (await marketStore()).get(`account:${userId}`, { type: "json", consistency: "strong" });
 }
 
 export async function saveAccount(account) {

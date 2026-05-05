@@ -27,6 +27,8 @@ Set these Netlify environment variables before enabling Discord login:
 - `DISCORD_CLIENT_SECRET`
 - `SESSION_SECRET`
 - `DISCORD_REDIRECT_URI` if you do not want the default `https://<site>/api/auth-callback`
+- `NETLIFY_BLOBS_SITE_ID` if Blobs automatic site detection is unavailable
+- `NETLIFY_BLOBS_TOKEN` if Blobs automatic auth is unavailable
 
 In the Discord developer portal, add the callback URL:
 
