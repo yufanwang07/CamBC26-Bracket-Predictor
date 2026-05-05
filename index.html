@@ -411,6 +411,96 @@
         background: rgba(255, 255, 255, 0.025);
     }
 
+    .data-table .prob-cell {
+        background: rgba(22, 101, 52, var(--heat));
+    }
+
+    .curve-section {
+        margin-top: 12px;
+    }
+
+    .curve-section-title {
+        color: var(--muted-foreground);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+    }
+
+    .curve-grid {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .curve-card {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: rgba(9, 9, 11, 0.64);
+        padding: 8px;
+        min-width: 0;
+    }
+
+    .curve-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--foreground);
+        font-size: 10px;
+        font-weight: 800;
+        margin-bottom: 4px;
+    }
+
+    .curve-title span:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .curve-title span:last-child {
+        color: var(--muted-foreground);
+        flex: 0 0 auto;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .curve-svg {
+        display: block;
+        height: 70px;
+        overflow: visible;
+        width: 100%;
+    }
+
+    .curve-baseline {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.12);
+        stroke-width: 1;
+    }
+
+    .curve-area {
+        fill: rgba(22, 101, 52, 0.34);
+    }
+
+    .curve-line {
+        fill: none;
+        stroke: #74d99f;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+    }
+
+    .curve-labels {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        color: var(--muted-foreground);
+        font-size: 8px;
+        gap: 2px;
+        line-height: 1;
+        margin-top: 2px;
+        text-align: center;
+    }
+
     .empty-state,
     .empty-cell {
         padding: 28px;
@@ -433,19 +523,19 @@
             </div>
             <div class="pill">
                 <div class="k">Common bracket</div>
-                <div class="v">11,306 / 1,000,000</div>
+                <div class="v">11,186 / 1,000,000</div>
             </div>
             <div class="pill">
                 <div class="k">Observed freq</div>
-                <div class="v">1.131%</div>
+                <div class="v">1.119%</div>
             </div>
             <div class="pill">
                 <div class="k">Stored matches</div>
-                <div class="v">1,668 (+34)</div>
+                <div class="v">1,673 (+5)</div>
             </div>
             <div class="pill">
                 <div class="k">Updated</div>
-                <div class="v">2026-05-05T17:00:18Z</div>
+                <div class="v">2026-05-05T17:06:47Z</div>
             </div>
         </div>
     </div>
@@ -474,7 +564,7 @@
             </div>
             <div class="pill">
                 <div class="k">Observed freq</div>
-                <div class="v">1.131%</div>
+                <div class="v">1.119%</div>
             </div>
         </div>
         
@@ -631,7 +721,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -641,7 +731,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -668,7 +758,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">37%</span>
@@ -695,7 +785,7 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -712,7 +802,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -722,7 +812,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -739,7 +829,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">7</span>
             <span class="team-prob">96%</span>
@@ -793,7 +883,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -803,7 +893,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -830,7 +920,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -847,7 +937,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -884,7 +974,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">97%</span>
@@ -901,7 +991,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -928,7 +1018,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -955,7 +1045,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -965,7 +1055,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -1009,7 +1099,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">6</span>
             <span class="team-prob">79%</span>
@@ -1036,7 +1126,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -1046,7 +1136,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1063,7 +1153,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">5</span>
             <span class="team-prob">58%</span>
@@ -1073,7 +1163,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">4</span>
             <span class="team-prob">42%</span>
@@ -1117,7 +1207,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">7</span>
             <span class="team-prob">94%</span>
@@ -1127,7 +1217,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">2</span>
             <span class="team-prob">6%</span>
@@ -1144,7 +1234,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">3</span>
             <span class="team-prob">8%</span>
@@ -1154,7 +1244,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">6</span>
             <span class="team-prob">92%</span>
@@ -1171,20 +1261,20 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">3</span>
-            <span class="team-prob">9%</span>
+            <span class="team-prob">8%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
-            <span class="team-prob">91%</span>
+            <span class="team-prob">92%</span>
         </div>
         
         </div>
@@ -1225,7 +1315,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">4</span>
             <span class="team-prob">27%</span>
@@ -1252,7 +1342,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">3</span>
             <span class="team-prob">23%</span>
@@ -1262,7 +1352,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
             <span class="team-prob">77%</span>
@@ -1306,7 +1396,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">3</span>
             <span class="team-prob">10%</span>
@@ -1316,7 +1406,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">6</span>
             <span class="team-prob">90%</span>
@@ -1360,7 +1450,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">3</span>
             <span class="team-prob">18%</span>
@@ -1414,7 +1504,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">6</span>
             <span class="team-prob">79%</span>
@@ -1450,7 +1540,7 @@
                 </div>
                 <div class="pill">
                     <div class="k">Common bracket</div>
-                    <div class="v">1,003 / 1,000,000</div>
+                    <div class="v">1,002 / 1,000,000</div>
                 </div>
                 <div class="pill">
                     <div class="k">Observed freq</div>
@@ -1611,7 +1701,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1621,7 +1711,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1648,7 +1738,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">37%</span>
@@ -1675,7 +1765,7 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1692,7 +1782,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1702,7 +1792,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -1719,7 +1809,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">7</span>
             <span class="team-prob">96%</span>
@@ -1773,7 +1863,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1783,7 +1873,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -1810,7 +1900,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1827,7 +1917,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -1864,7 +1954,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">97%</span>
@@ -1881,7 +1971,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -1908,7 +1998,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -1935,7 +2025,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -1945,7 +2035,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -1989,7 +2079,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">79%</span>
@@ -2016,7 +2106,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -2026,7 +2116,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -2043,7 +2133,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">5</span>
             <span class="team-prob">58%</span>
@@ -2053,7 +2143,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">4</span>
             <span class="team-prob">42%</span>
@@ -2097,7 +2187,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">7</span>
             <span class="team-prob">94%</span>
@@ -2107,7 +2197,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">2</span>
             <span class="team-prob">6%</span>
@@ -2124,7 +2214,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">3</span>
             <span class="team-prob">8%</span>
@@ -2134,7 +2224,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">6</span>
             <span class="team-prob">92%</span>
@@ -2151,20 +2241,20 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">3</span>
-            <span class="team-prob">9%</span>
+            <span class="team-prob">8%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
-            <span class="team-prob">91%</span>
+            <span class="team-prob">92%</span>
         </div>
         
         </div>
@@ -2205,7 +2295,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">4</span>
             <span class="team-prob">27%</span>
@@ -2232,7 +2322,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">3</span>
             <span class="team-prob">23%</span>
@@ -2242,7 +2332,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
             <span class="team-prob">77%</span>
@@ -2286,7 +2376,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">3</span>
             <span class="team-prob">10%</span>
@@ -2296,7 +2386,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">6</span>
             <span class="team-prob">90%</span>
@@ -2340,7 +2430,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">3</span>
             <span class="team-prob">18%</span>
@@ -2377,7 +2467,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">7</span>
             <span class="team-prob">99%</span>
@@ -2404,7 +2494,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">79%</span>
@@ -2429,7 +2519,7 @@
                 </div>
                 <div class="pill">
                     <div class="k">Common bracket</div>
-                    <div class="v">11 / 1,000,000</div>
+                    <div class="v">12 / 1,000,000</div>
                 </div>
                 <div class="pill">
                     <div class="k">Observed freq</div>
@@ -2590,7 +2680,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -2600,7 +2690,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -2627,7 +2717,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">37%</span>
@@ -2654,7 +2744,7 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -2671,7 +2761,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -2681,7 +2771,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -2698,7 +2788,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">7</span>
             <span class="team-prob">96%</span>
@@ -2752,7 +2842,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -2762,7 +2852,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -2789,7 +2879,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -2806,7 +2896,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -2843,7 +2933,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">97%</span>
@@ -2860,7 +2950,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -2887,7 +2977,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -2914,7 +3004,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -2924,7 +3014,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -2968,7 +3058,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">99%</span>
@@ -2995,7 +3085,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -3005,7 +3095,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -3022,7 +3112,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">5</span>
             <span class="team-prob">58%</span>
@@ -3032,7 +3122,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">4</span>
             <span class="team-prob">42%</span>
@@ -3076,7 +3166,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">7</span>
             <span class="team-prob">94%</span>
@@ -3086,7 +3176,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">2</span>
             <span class="team-prob">6%</span>
@@ -3103,7 +3193,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">3</span>
             <span class="team-prob">8%</span>
@@ -3113,7 +3203,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">6</span>
             <span class="team-prob">92%</span>
@@ -3130,20 +3220,20 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">3</span>
-            <span class="team-prob">9%</span>
+            <span class="team-prob">8%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
-            <span class="team-prob">91%</span>
+            <span class="team-prob">92%</span>
         </div>
         
         </div>
@@ -3184,7 +3274,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">4</span>
             <span class="team-prob">27%</span>
@@ -3211,7 +3301,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">3</span>
             <span class="team-prob">23%</span>
@@ -3221,7 +3311,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
             <span class="team-prob">77%</span>
@@ -3265,7 +3355,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">3</span>
             <span class="team-prob">10%</span>
@@ -3275,7 +3365,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">6</span>
             <span class="team-prob">90%</span>
@@ -3319,7 +3409,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">3</span>
             <span class="team-prob">11%</span>
@@ -3356,7 +3446,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">79%</span>
@@ -3569,7 +3659,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -3579,7 +3669,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -3606,7 +3696,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">4</span>
             <span class="team-prob">37%</span>
@@ -3633,7 +3723,7 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -3650,7 +3740,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -3660,7 +3750,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -3677,7 +3767,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">7</span>
             <span class="team-prob">96%</span>
@@ -3731,7 +3821,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -3741,7 +3831,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -3768,7 +3858,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -3785,7 +3875,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">9</span>
             <span class="team-prob">100%</span>
@@ -3822,7 +3912,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">7</span>
             <span class="team-prob">97%</span>
@@ -3839,7 +3929,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">1</span>
             <span class="team-prob">1%</span>
@@ -3866,7 +3956,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">0</span>
             <span class="team-prob">0%</span>
@@ -3893,7 +3983,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -3903,7 +3993,7 @@
             
         <div class="team-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -3947,7 +4037,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">79%</span>
@@ -3974,7 +4064,7 @@
             
         <div class="team-row">
             <span class="seed">#16</span>
-            <span class="rating">2303</span>
+            <span class="rating">2319</span>
             <span class="name" title="Mr Worldwide">Mr Worldwide</span>
             <span class="score">1</span>
             <span class="team-prob">0%</span>
@@ -3984,7 +4074,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">8</span>
             <span class="team-prob">100%</span>
@@ -4001,7 +4091,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">5</span>
             <span class="team-prob">58%</span>
@@ -4011,7 +4101,7 @@
             
         <div class="team-row">
             <span class="seed">#13</span>
-            <span class="rating">2483</span>
+            <span class="rating">2482</span>
             <span class="name" title="The Cambridge Edge">The Cambridge Edge</span>
             <span class="score">4</span>
             <span class="team-prob">42%</span>
@@ -4055,7 +4145,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">7</span>
             <span class="team-prob">94%</span>
@@ -4065,7 +4155,7 @@
             
         <div class="team-row">
             <span class="seed">#15</span>
-            <span class="rating">2280</span>
+            <span class="rating">2292</span>
             <span class="name" title="Axionite Allergic Individuals">Axionite Allergic Individ…</span>
             <span class="score">2</span>
             <span class="team-prob">6%</span>
@@ -4082,7 +4172,7 @@
             
         <div class="team-row">
             <span class="seed">#9</span>
-            <span class="rating">2636</span>
+            <span class="rating">2642</span>
             <span class="name" title="Beehive">Beehive</span>
             <span class="score">3</span>
             <span class="team-prob">8%</span>
@@ -4092,7 +4182,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">6</span>
             <span class="team-prob">92%</span>
@@ -4109,20 +4199,20 @@
             
         <div class="team-row">
             <span class="seed">#12</span>
-            <span class="rating">2536</span>
+            <span class="rating">2537</span>
             <span class="name" title="anime girls against period cramp">anime girls against perio…</span>
             <span class="score">3</span>
-            <span class="team-prob">9%</span>
+            <span class="team-prob">8%</span>
         </div>
         
             <div class="divider"></div>
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
-            <span class="team-prob">91%</span>
+            <span class="team-prob">92%</span>
         </div>
         
         </div>
@@ -4163,7 +4253,7 @@
             
         <div class="team-row">
             <span class="seed">#10</span>
-            <span class="rating">2462</span>
+            <span class="rating">2468</span>
             <span class="name" title="Grandmaster Oogway">Grandmaster Oogway</span>
             <span class="score">4</span>
             <span class="team-prob">27%</span>
@@ -4190,7 +4280,7 @@
             
         <div class="team-row">
             <span class="seed">#7</span>
-            <span class="rating">2672</span>
+            <span class="rating">2669</span>
             <span class="name" title="randomusergroup">randomusergroup</span>
             <span class="score">3</span>
             <span class="team-prob">23%</span>
@@ -4200,7 +4290,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">6</span>
             <span class="team-prob">77%</span>
@@ -4244,7 +4334,7 @@
             
         <div class="team-row">
             <span class="seed">#6</span>
-            <span class="rating">2693</span>
+            <span class="rating">2695</span>
             <span class="name" title="muteki">muteki</span>
             <span class="score">3</span>
             <span class="team-prob">10%</span>
@@ -4254,7 +4344,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">6</span>
             <span class="team-prob">90%</span>
@@ -4298,7 +4388,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">5</span>
             <span class="team-prob">18%</span>
@@ -4325,7 +4415,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">5</span>
             <span class="team-prob">0%</span>
@@ -4335,7 +4425,7 @@
             
         <div class="team-row">
             <span class="seed">#1</span>
-            <span class="rating">3218</span>
+            <span class="rating">3211</span>
             <span class="name" title="Pantheon">Pantheon</span>
             <span class="score">4</span>
             <span class="team-prob">100%</span>
@@ -4362,7 +4452,7 @@
             
         <div class="team-row winner-row">
             <span class="seed">#4</span>
-            <span class="rating">2946</span>
+            <span class="rating">2953</span>
             <span class="name" title="bwaaa">bwaaa</span>
             <span class="score">5</span>
             <span class="team-prob">11%</span>
@@ -4402,245 +4492,474 @@
                     
         <tr>
             <th class="text-col">Pantheon</th>
-            <td>91.5%</td>
-            <td>100.0%</td>
-            <td>91.5%</td>
-            <td>8.3%</td>
-            <td>0.2%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
+            <td class="prob-cell" style="--heat:0.277;">91.5%</td>
+            <td class="prob-cell" style="--heat:0.300;">100.0%</td>
+            <td class="prob-cell" style="--heat:0.277;">91.5%</td>
+            <td class="prob-cell" style="--heat:0.057;">8.3%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.2%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">something else</th>
-            <td>8.5%</td>
-            <td>97.1%</td>
-            <td>8.5%</td>
-            <td>68.3%</td>
-            <td>20.4%</td>
-            <td>2.8%</td>
-            <td>0.1%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
+            <td class="prob-cell" style="--heat:0.057;">8.5%</td>
+            <td class="prob-cell" style="--heat:0.292;">97.1%</td>
+            <td class="prob-cell" style="--heat:0.057;">8.5%</td>
+            <td class="prob-cell" style="--heat:0.216;">68.3%</td>
+            <td class="prob-cell" style="--heat:0.089;">20.4%</td>
+            <td class="prob-cell" style="--heat:0.042;">2.8%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.1%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Kessoku Band</th>
-            <td>0.1%</td>
-            <td>87.3%</td>
-            <td>0.1%</td>
-            <td>21.8%</td>
-            <td>65.5%</td>
-            <td>12.0%</td>
-            <td>0.6%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.1%</td>
+            <td class="prob-cell" style="--heat:0.266;">87.3%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.1%</td>
+            <td class="prob-cell" style="--heat:0.093;">21.8%</td>
+            <td class="prob-cell" style="--heat:0.208;">65.5%</td>
+            <td class="prob-cell" style="--heat:0.067;">12.1%</td>
+            <td class="prob-cell" style="--heat:0.037;">0.6%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">bwaaa</th>
-            <td>0.0%</td>
-            <td>15.5%</td>
-            <td>0.0%</td>
-            <td>1.6%</td>
-            <td>13.8%</td>
-            <td>75.8%</td>
-            <td>8.7%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.076;">15.5%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.039;">1.7%</td>
+            <td class="prob-cell" style="--heat:0.072;">13.9%</td>
+            <td class="prob-cell" style="--heat:0.236;">75.8%</td>
+            <td class="prob-cell" style="--heat:0.058;">8.7%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">MFF1</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>2.3%</td>
-            <td>59.4%</td>
-            <td>36.0%</td>
-            <td>2.4%</td>
-            <td>0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.041;">2.3%</td>
+            <td class="prob-cell" style="--heat:0.192;">59.3%</td>
+            <td class="prob-cell" style="--heat:0.131;">36.1%</td>
+            <td class="prob-cell" style="--heat:0.041;">2.3%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">muteki</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>6.1%</td>
-            <td>54.3%</td>
-            <td>23.7%</td>
-            <td>15.6%</td>
-            <td>0.2%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.051;">6.1%</td>
+            <td class="prob-cell" style="--heat:0.179;">54.3%</td>
+            <td class="prob-cell" style="--heat:0.098;">23.9%</td>
+            <td class="prob-cell" style="--heat:0.076;">15.3%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.2%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">randomusergroup</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.4%</td>
-            <td>18.9%</td>
-            <td>43.1%</td>
-            <td>37.6%</td>
-            <td>0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.4%</td>
+            <td class="prob-cell" style="--heat:0.085;">19.0%</td>
+            <td class="prob-cell" style="--heat:0.149;">43.1%</td>
+            <td class="prob-cell" style="--heat:0.134;">37.5%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">test</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.2%</td>
-            <td>33.4%</td>
-            <td>46.3%</td>
-            <td>20.0%</td>
-            <td>0.1%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.2%</td>
+            <td class="prob-cell" style="--heat:0.124;">33.5%</td>
+            <td class="prob-cell" style="--heat:0.158;">46.4%</td>
+            <td class="prob-cell" style="--heat:0.088;">19.8%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.1%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Beehive</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.2%</td>
-            <td>19.3%</td>
-            <td>9.0%</td>
-            <td>71.2%</td>
-            <td>0.2%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.2%</td>
+            <td class="prob-cell" style="--heat:0.086;">19.4%</td>
+            <td class="prob-cell" style="--heat:0.059;">9.1%</td>
+            <td class="prob-cell" style="--heat:0.223;">71.1%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.2%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">anime girls against period cramp</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.1%</td>
-            <td>3.1%</td>
-            <td>3.2%</td>
-            <td>51.8%</td>
-            <td>41.9%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.1%</td>
+            <td class="prob-cell" style="--heat:0.043;">3.0%</td>
+            <td class="prob-cell" style="--heat:0.043;">3.1%</td>
+            <td class="prob-cell" style="--heat:0.173;">51.9%</td>
+            <td class="prob-cell" style="--heat:0.146;">41.9%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Silver Street Capital</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.7%</td>
-            <td>2.2%</td>
-            <td>46.9%</td>
-            <td>50.2%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.037;">0.7%</td>
+            <td class="prob-cell" style="--heat:0.041;">2.1%</td>
+            <td class="prob-cell" style="--heat:0.159;">46.9%</td>
+            <td class="prob-cell" style="--heat:0.168;">50.3%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">The Cambridge Edge</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.9%</td>
-            <td>7.5%</td>
-            <td>33.6%</td>
-            <td>58.1%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.037;">0.9%</td>
+            <td class="prob-cell" style="--heat:0.055;">7.5%</td>
+            <td class="prob-cell" style="--heat:0.124;">33.6%</td>
+            <td class="prob-cell" style="--heat:0.189;">58.1%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Grandmaster Oogway</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.5%</td>
-            <td>28.5%</td>
-            <td>65.3%</td>
-            <td>5.7%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.4%</td>
+            <td class="prob-cell" style="--heat:0.110;">28.3%</td>
+            <td class="prob-cell" style="--heat:0.207;">64.9%</td>
+            <td class="prob-cell" style="--heat:0.052;">6.4%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Tootill Labs</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.1%</td>
-            <td>0.5%</td>
-            <td>49.8%</td>
-            <td>49.6%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.1%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.5%</td>
+            <td class="prob-cell" style="--heat:0.167;">49.9%</td>
+            <td class="prob-cell" style="--heat:0.166;">49.5%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Mr Worldwide</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.2%</td>
-            <td>99.8%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.036;">0.3%</td>
+            <td class="prob-cell" style="--heat:0.299;">99.7%</td>
         </tr>
         
 
         <tr>
             <th class="text-col">Axionite Allergic Individuals</th>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>0.0%</td>
-            <td>5.7%</td>
-            <td>94.3%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.000;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.035;">0.0%</td>
+            <td class="prob-cell" style="--heat:0.052;">6.3%</td>
+            <td class="prob-cell" style="--heat:0.283;">93.6%</td>
         </tr>
         
                 </tbody>
             </table>
+        </div>
+        <div class="curve-section">
+            <div class="curve-section-title">Placement Probability Curves</div>
+            <div class="curve-grid">
+                
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Pantheon</span>
+                <span>91.5%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Pantheon placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 13.3 L 47.1 64.9 L 84.3 69.9 L 121.4 70.0 L 158.6 70.0 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 13.3 L 47.1 64.9 L 84.3 69.9 L 121.4 70.0 L 158.6 70.0 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>something else</span>
+                <span>8.5%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="something else placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 64.7 L 47.1 27.7 L 84.3 57.4 L 121.4 68.3 L 158.6 69.9 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 64.7 L 47.1 27.7 L 84.3 57.4 L 121.4 68.3 L 158.6 69.9 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Kessoku Band</span>
+                <span>0.1%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Kessoku Band placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 56.5 L 84.3 29.4 L 121.4 62.5 L 158.6 69.6 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 56.5 L 84.3 29.4 L 121.4 62.5 L 158.6 69.6 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>bwaaa</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="bwaaa placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 69.0 L 84.3 61.4 L 121.4 23.0 L 158.6 64.6 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 69.0 L 84.3 61.4 L 121.4 23.0 L 158.6 64.6 L 195.7 70.0 L 232.9 70.0 L 270.0 70.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>MFF1</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="MFF1 placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 68.6 L 158.6 33.3 L 195.7 47.6 L 232.9 68.6 L 270.0 70.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 68.6 L 158.6 33.3 L 195.7 47.6 L 232.9 68.6 L 270.0 70.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>muteki</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="muteki placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 66.2 L 158.6 36.3 L 195.7 55.2 L 232.9 60.5 L 270.0 69.9 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 66.2 L 158.6 36.3 L 195.7 55.2 L 232.9 60.5 L 270.0 69.9"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>randomusergroup</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="randomusergroup placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 69.7 L 158.6 58.2 L 195.7 43.3 L 232.9 46.7 L 270.0 70.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 69.7 L 158.6 58.2 L 195.7 43.3 L 232.9 46.7 L 270.0 70.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>test</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="test placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 69.9 L 158.6 49.3 L 195.7 41.3 L 232.9 57.7 L 270.0 69.9 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 69.9 L 158.6 49.3 L 195.7 41.3 L 232.9 57.7 L 270.0 69.9"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Beehive</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Beehive placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 69.9 L 158.6 58.0 L 195.7 64.4 L 232.9 25.9 L 270.0 69.9 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 69.9 L 158.6 58.0 L 195.7 64.4 L 232.9 25.9 L 270.0 69.9"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>anime girls against period cramp</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="anime girls against period cramp placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 68.1 L 195.7 68.1 L 232.9 37.8 L 270.0 44.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 68.1 L 195.7 68.1 L 232.9 37.8 L 270.0 44.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Silver Street Capital</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Silver Street Capital placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.6 L 195.7 68.7 L 232.9 40.9 L 270.0 38.8 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.6 L 195.7 68.7 L 232.9 40.9 L 270.0 38.8"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>The Cambridge Edge</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="The Cambridge Edge placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.5 L 195.7 65.4 L 232.9 49.2 L 270.0 34.0 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.5 L 195.7 65.4 L 232.9 49.2 L 270.0 34.0"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Grandmaster Oogway</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Grandmaster Oogway placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.7 L 195.7 52.4 L 232.9 29.8 L 270.0 66.1 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.7 L 195.7 52.4 L 232.9 29.8 L 270.0 66.1"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Tootill Labs</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Tootill Labs placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.9 L 195.7 69.7 L 232.9 39.1 L 270.0 39.3 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 69.9 L 195.7 69.7 L 232.9 39.1 L 270.0 39.3"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Mr Worldwide</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Mr Worldwide placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 70.0 L 195.7 70.0 L 232.9 69.8 L 270.0 8.2 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 70.0 L 195.7 70.0 L 232.9 69.8 L 270.0 8.2"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+
+        <div class="curve-card">
+            <div class="curve-title">
+                <span>Axionite Allergic Individuals</span>
+                <span>0.0%</span>
+            </div>
+            <svg class="curve-svg" viewBox="0 0 280 88" role="img" aria-label="Axionite Allergic Individuals placement probability curve">
+                <path class="curve-baseline" d="M 10 70.0 L 270 70.0"></path>
+                <path class="curve-area" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 70.0 L 195.7 70.0 L 232.9 66.1 L 270.0 11.9 L 270.0 70.0 L 10.0 70.0 Z"></path>
+                <path class="curve-line" d="M 10.0 70.0 L 47.1 70.0 L 84.3 70.0 L 121.4 70.0 L 158.6 70.0 L 195.7 70.0 L 232.9 66.1 L 270.0 11.9"></path>
+            </svg>
+            <div class="curve-labels"><span>1st</span><span>2nd</span><span>3rd</span><span>4th</span><span>5-6</span><span>7-8</span><span>9-12</span><span>13-16</span></div>
+        </div>
+        
+            </div>
         </div>
     </section>
 
@@ -4713,6 +5032,15 @@
         
 
         <tr>
+            <th class="text-col">Pantheon</th>
+            <th class="text-col">bwaaa</th>
+            <td>81-9</td>
+            <td>90.0%</td>
+            <td>99.9%</td>
+        </tr>
+        
+
+        <tr>
             <th class="text-col">bwaaa</th>
             <th class="text-col">muteki</th>
             <td>63-27</td>
@@ -4745,15 +5073,6 @@
             <td>72-13</td>
             <td>84.7%</td>
             <td>99.4%</td>
-        </tr>
-        
-
-        <tr>
-            <th class="text-col">Pantheon</th>
-            <th class="text-col">bwaaa</th>
-            <td>78-7</td>
-            <td>91.8%</td>
-            <td>100.0%</td>
         </tr>
         
 
@@ -4885,6 +5204,15 @@
 
         <tr>
             <th class="text-col">muteki</th>
+            <th class="text-col">randomusergroup</th>
+            <td>34-21</td>
+            <td>61.8%</td>
+            <td>77.0%</td>
+        </tr>
+        
+
+        <tr>
+            <th class="text-col">muteki</th>
             <th class="text-col">test</th>
             <td>31-24</td>
             <td>56.4%</td>
@@ -4988,15 +5316,6 @@
             <td>13-37</td>
             <td>26.0%</td>
             <td>5.7%</td>
-        </tr>
-        
-
-        <tr>
-            <th class="text-col">muteki</th>
-            <th class="text-col">randomusergroup</th>
-            <td>31-19</td>
-            <td>62.0%</td>
-            <td>77.4%</td>
         </tr>
         
 
