@@ -1318,6 +1318,7 @@
         ['LB-Final', 1504],
         ['Grand-Final', 1504],
     ];
+    const roundColumnX = new Map(roundOrder);
 
     document.querySelectorAll('.match-card, .round-toggle').forEach(el => {
         el.dataset.baseLeft = String(parseFloat(el.style.left || '0'));
@@ -1328,55 +1329,53 @@
         el.dataset.baseD = el.getAttribute('d') || '';
     });
 
+    function collapsedColumnXs() {
+        return [...new Set([...collapsedRounds].map(roundKey => roundColumnX.get(roundKey)).filter(x => Number.isFinite(x)))].sort((a, b) => a - b);
+    }
+
     function shiftForX(x) {
-        return roundOrder.reduce((shift, [roundKey, roundX]) => {
-            if (collapsedRounds.has(roundKey) && x > roundX + 1) {
+        return collapsedColumnXs().reduce((shift, roundX) => {
+            if (x > roundX + 1) {
                 return shift + cardWidth + columnGap - collapsedWidth;
             }
             return shift;
         }, 0);
     }
 
-    function updateRound(roundKey, collapsed) {
+    function setRoundCollapsed(roundKey, collapsed) {
         if (collapsed) {
             collapsedRounds.add(roundKey);
         } else {
             collapsedRounds.delete(roundKey);
         }
+    }
 
-        document.querySelectorAll(`.match-card[data-round="${roundKey}"]`)
-            .forEach(el => el.classList.toggle('is-collapsed', collapsed));
-
-        document.querySelectorAll('.round-line')
-            .forEach(el => {
-                const src = el.dataset.srcRound;
-                const dst = el.dataset.dstRound;
-                const hide = src === roundKey || dst === roundKey;
-                if (hide) {
-                    el.classList.toggle('is-collapsed', collapsed);
-                }
-            });
-
-        document.querySelectorAll(`.round-toggle[data-round="${roundKey}"]`)
-            .forEach(el => el.classList.toggle('collapsed', collapsed));
-
+    function setRoundAndCascade(roundKey, collapsed) {
+        setRoundCollapsed(roundKey, collapsed);
+        (cascadeRounds[roundKey] || []).forEach(linkedRound => setRoundCollapsed(linkedRound, collapsed));
         applyLayout();
     }
 
-    function updateRoundAndCascade(roundKey, collapsed) {
-        updateRound(roundKey, collapsed);
-        (cascadeRounds[roundKey] || []).forEach(linkedRound => updateRound(linkedRound, collapsed));
-    }
-
     function applyLayout() {
+        document.querySelectorAll('.match-card').forEach(el => {
+            el.classList.toggle('is-collapsed', collapsedRounds.has(el.dataset.round));
+        });
+
+        document.querySelectorAll('.round-line').forEach(el => {
+            const hide = collapsedRounds.has(el.dataset.srcRound) || collapsedRounds.has(el.dataset.dstRound);
+            el.classList.toggle('is-collapsed', hide);
+        });
+
         document.querySelectorAll('.match-card, .round-toggle').forEach(el => {
             const baseLeft = parseFloat(el.dataset.baseLeft || '0');
             const baseWidth = parseFloat(el.dataset.baseWidth || cardWidth);
             const roundKey = el.dataset.round;
+            const isCollapsed = collapsedRounds.has(roundKey);
             const newLeft = baseLeft - shiftForX(baseLeft);
             el.style.left = `${newLeft}px`;
             if (el.classList.contains('round-toggle')) {
-                el.style.width = `${collapsedRounds.has(roundKey) ? collapsedWidth : baseWidth}px`;
+                el.classList.toggle('collapsed', isCollapsed);
+                el.style.width = `${isCollapsed ? collapsedWidth : baseWidth}px`;
             }
         });
 
@@ -1407,11 +1406,11 @@
         btn.addEventListener('click', () => {
             const roundKey = btn.dataset.round;
             const collapsed = !btn.classList.contains('collapsed');
-            updateRoundAndCascade(roundKey, collapsed);
+            setRoundAndCascade(roundKey, collapsed);
         });
     });
 
-    updateRoundAndCascade('UB-R1', true);
+    setRoundAndCascade('UB-R1', true);
 })();
 </script>
 </body>
