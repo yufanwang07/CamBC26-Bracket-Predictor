@@ -149,7 +149,7 @@
         background: transparent;
         font-family: inherit;
         overflow: hidden;
-        transition: left 160ms ease, width 160ms ease, color 120ms ease, border-color 120ms ease;
+        transition: color 120ms ease, border-color 120ms ease;
     }
 
     .round-header:hover {
@@ -196,7 +196,7 @@
         background: rgba(15, 15, 18, 0.96);
         border-radius: 7px;
         overflow: hidden;
-        transition: left 160ms ease, background 120ms ease, border-color 120ms ease, transform 120ms ease, opacity 120ms ease;
+        transition: background 120ms ease, border-color 120ms ease, transform 120ms ease, opacity 120ms ease;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     }
 
@@ -1291,127 +1291,32 @@
 <script>
 (() => {
     const toggles = document.querySelectorAll('.round-toggle');
-    const canvas = document.querySelector('.canvas');
-    const svg = document.querySelector('svg');
-    const collapsedRounds = new Set();
-    const collapsedWidth = 46;
-    const cardWidth = 214;
-    const columnGap = 66;
-    const canvasBaseWidth = 1950;
-    const cascadeRounds = {
-        'UB-R1': ['LB-R1'],
-        'UB-QF': ['LB-R2'],
-        'UB-SF': ['LB-R4'],
-        'UB-Final': ['LB-Final'],
-    };
 
-    const roundOrder = [
-        ['UB-R1', 24],
-        ['UB-QF', 304],
-        ['UB-SF', 584],
-        ['UB-Final', 864],
-        ['LB-R1', 24],
-        ['LB-R2', 304],
-        ['LB-R3', 584],
-        ['LB-R4', 864],
-        ['LB-R5', 1144],
-        ['LB-Final', 1424],
-        ['Grand-Final', 1424],
-        ['GF-Reset', 1704],
-    ];
-    const roundColumnX = new Map(roundOrder);
+    function updateRound(roundKey, collapsed) {
+        document.querySelectorAll(`.match-card[data-round="${roundKey}"]`)
+            .forEach(el => el.classList.toggle('is-collapsed', collapsed));
 
-    document.querySelectorAll('.match-card, .round-toggle').forEach(el => {
-        el.dataset.baseLeft = String(parseFloat(el.style.left || '0'));
-        el.dataset.baseWidth = String(parseFloat(el.style.width || cardWidth));
-    });
-
-    document.querySelectorAll('.round-line').forEach(el => {
-        el.dataset.baseD = el.getAttribute('d') || '';
-    });
-
-    function collapsedColumnXs() {
-        return [...new Set([...collapsedRounds].map(roundKey => roundColumnX.get(roundKey)).filter(x => Number.isFinite(x)))].sort((a, b) => a - b);
-    }
-
-    function shiftForX(x) {
-        return collapsedColumnXs().reduce((shift, roundX) => {
-            if (x > roundX + 1) {
-                return shift + cardWidth + columnGap - collapsedWidth;
-            }
-            return shift;
-        }, 0);
-    }
-
-    function setRoundCollapsed(roundKey, collapsed) {
-        if (collapsed) {
-            collapsedRounds.add(roundKey);
-        } else {
-            collapsedRounds.delete(roundKey);
-        }
-    }
-
-    function setRoundAndCascade(roundKey, collapsed) {
-        setRoundCollapsed(roundKey, collapsed);
-        (cascadeRounds[roundKey] || []).forEach(linkedRound => setRoundCollapsed(linkedRound, collapsed));
-        applyLayout();
-    }
-
-    function applyLayout() {
-        document.querySelectorAll('.match-card').forEach(el => {
-            el.classList.toggle('is-collapsed', collapsedRounds.has(el.dataset.round));
-        });
-
-        document.querySelectorAll('.round-line').forEach(el => {
-            const hide = collapsedRounds.has(el.dataset.srcRound) || collapsedRounds.has(el.dataset.dstRound);
-            el.classList.toggle('is-collapsed', hide);
-        });
-
-        document.querySelectorAll('.match-card, .round-toggle').forEach(el => {
-            const baseLeft = parseFloat(el.dataset.baseLeft || '0');
-            const baseWidth = parseFloat(el.dataset.baseWidth || cardWidth);
-            const roundKey = el.dataset.round;
-            const isCollapsed = collapsedRounds.has(roundKey);
-            const newLeft = baseLeft - shiftForX(baseLeft);
-            el.style.left = `${newLeft}px`;
-            if (el.classList.contains('round-toggle')) {
-                el.classList.toggle('collapsed', isCollapsed);
-                el.style.width = `${isCollapsed ? collapsedWidth : baseWidth}px`;
-            }
-        });
-
-        document.querySelectorAll('.round-line').forEach(el => {
-            const baseD = el.dataset.baseD || '';
-            const nums = baseD.match(/-?\d+(?:\.\d+)?/g);
-            if (!nums || nums.length < 8) {
-                return;
-            }
-            const shifted = nums.map((value, idx) => {
-                const n = parseFloat(value);
-                return idx % 2 === 0 ? (n - shiftForX(n)).toFixed(1) : n.toFixed(1);
+        document.querySelectorAll('.round-line')
+            .forEach(el => {
+                const src = el.dataset.srcRound;
+                const dst = el.dataset.dstRound;
+                const hide = src === roundKey || dst === roundKey;
+                if (hide) {
+                    el.classList.toggle('is-collapsed', collapsed);
+                }
             });
-            el.setAttribute(
-                'd',
-                `M ${shifted[0]} ${shifted[1]} L ${shifted[2]} ${shifted[3]} L ${shifted[4]} ${shifted[5]} L ${shifted[6]} ${shifted[7]}`
-            );
-        });
 
-        const totalShift = shiftForX(canvasBaseWidth);
-        const width = Math.max(900, canvasBaseWidth - totalShift);
-        canvas.style.width = `${width}px`;
-        svg.setAttribute('width', String(width));
-        svg.setAttribute('viewBox', `0 0 ${width} 1200`);
+        document.querySelectorAll(`.round-toggle[data-round="${roundKey}"]`)
+            .forEach(el => el.classList.toggle('collapsed', collapsed));
     }
 
     toggles.forEach(btn => {
         btn.addEventListener('click', () => {
             const roundKey = btn.dataset.round;
             const collapsed = !btn.classList.contains('collapsed');
-            setRoundAndCascade(roundKey, collapsed);
+            updateRound(roundKey, collapsed);
         });
     });
-
-    applyLayout();
 })();
 </script>
 </body>
