@@ -18,6 +18,23 @@
       "type": "",
       "winnerId": "398247ba-db7a-4dcd-9e20-4cae45814041"
     },
+    "0080fd5f-6274-4434-8366-7c2a7d751fb5": {
+      "completedAt": "2026-05-06T00:33:05.289Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "0080fd5f-6274-4434-8366-7c2a7d751fb5",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 1,
+      "scoreB": 4,
+      "status": "complete",
+      "teamAId": "d65027f1-3cc5-4afc-bfe1-0fb75d915611",
+      "teamAName": "anime girls against period cramp",
+      "teamBId": "dad45443-1f2f-4290-a8d6-bdd474788f91",
+      "teamBName": "Beehive",
+      "type": "",
+      "winnerId": "dad45443-1f2f-4290-a8d6-bdd474788f91"
+    },
     "008842cd-ac97-48e9-b446-a97a6abe1351": {
       "completedAt": "2026-05-05T05:05:22.016Z",
       "createdAt": "2026-05-05T04:52:27.632Z",
@@ -2992,6 +3009,23 @@
       "teamBName": "Blue Dragon",
       "type": "",
       "winnerId": "023ce802-d72e-44f5-b99e-71a6f97db4b7"
+    },
+    "140ba2ac-4d39-4041-9b90-ee3e657d16bc": {
+      "completedAt": "2026-05-06T00:24:56.293Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "140ba2ac-4d39-4041-9b90-ee3e657d16bc",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 4,
+      "scoreB": 1,
+      "status": "complete",
+      "teamAId": "443b46a9-351d-4281-8494-d33fb673402d",
+      "teamAName": "Make Fire",
+      "teamBId": "d65027f1-3cc5-4afc-bfe1-0fb75d915611",
+      "teamBName": "anime girls against period cramp",
+      "type": "",
+      "winnerId": "443b46a9-351d-4281-8494-d33fb673402d"
     },
     "142f8f79-8869-4fad-b8d2-098ac82bafee": {
       "completedAt": "2026-05-04T22:43:40.889Z",
@@ -6002,6 +6036,23 @@
       "type": "",
       "winnerId": "4227ccb5-4c2f-402e-a5e7-0cb419b2a137"
     },
+    "28865a22-d83a-43d3-a45c-f31fed59b433": {
+      "completedAt": "2026-05-06T00:34:36.377Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "28865a22-d83a-43d3-a45c-f31fed59b433",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "9e23470a-27f1-4ab6-a9b7-04b93c2d7861",
+      "teamAName": "The Rational Merlin",
+      "teamBId": "088300b8-d8ec-420b-bed3-46e5949dfc49",
+      "teamBName": "Axionite Allergic Individuals",
+      "type": "",
+      "winnerId": "9e23470a-27f1-4ab6-a9b7-04b93c2d7861"
+    },
     "28a7f82f-9453-4298-b86b-5f8b18d04fc7": {
       "completedAt": "2026-05-05T00:42:46.561Z",
       "createdAt": "2026-05-05T00:32:27.778Z",
@@ -7260,6 +7311,23 @@
       "type": "",
       "winnerId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab"
     },
+    "317e33d3-be05-4486-bd32-783aa16843a6": {
+      "completedAt": "2026-05-06T00:37:43.602Z",
+      "createdAt": "2026-05-06T00:32:28.102Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "317e33d3-be05-4486-bd32-783aa16843a6",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "0a78efb1-d158-49ce-8627-6627d6a1e7f0",
+      "teamAName": "food",
+      "teamBId": "0b3c6edc-6dce-4364-b871-5d3fbf34d5ce",
+      "teamBName": "Mr Worldwide",
+      "type": "",
+      "winnerId": "0a78efb1-d158-49ce-8627-6627d6a1e7f0"
+    },
     "31a6cf6e-5af8-43a9-a236-25b74c257e64": {
       "completedAt": "2026-05-05T17:10:58.965Z",
       "createdAt": "2026-05-05T17:07:14.862Z",
@@ -8296,6 +8364,23 @@
       "teamBName": "Axionite Allergic Individuals",
       "type": "",
       "winnerId": "d581dd21-ce5e-4f9c-97e2-d978b064be0c"
+    },
+    "366be30b-a000-4c0d-95a5-f1e17841f5ca": {
+      "completedAt": "2026-05-06T00:22:29.799Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "366be30b-a000-4c0d-95a5-f1e17841f5ca",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 0,
+      "scoreB": 5,
+      "status": "complete",
+      "teamAId": "421bd2a2-c421-4359-a06a-9a517f1e08a7",
+      "teamAName": "randomusergroup",
+      "teamBId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab",
+      "teamBName": "Kessoku Band",
+      "type": "",
+      "winnerId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab"
     },
     "36992970-8430-4012-a7f5-4a471b71be35": {
       "completedAt": "2026-05-05T18:56:58.808Z",
@@ -9963,6 +10048,23 @@
       "type": "",
       "winnerId": "db64a383-a20a-4cf9-a57c-082e1dc9dfbf"
     },
+    "4115aa9a-5104-4a4b-a092-c8d2c1573c08": {
+      "completedAt": "2026-05-06T00:26:45.204Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "4115aa9a-5104-4a4b-a092-c8d2c1573c08",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab",
+      "teamAName": "Kessoku Band",
+      "teamBId": "b4a784e9-1e15-4d0d-89d0-b673c53e686b",
+      "teamBName": "something else",
+      "type": "",
+      "winnerId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab"
+    },
     "4136b2ee-e750-4305-b0ed-9445672a8059": {
       "completedAt": "2026-05-04T23:13:47.715Z",
       "createdAt": "2026-05-04T23:02:27.852Z",
@@ -10438,6 +10540,23 @@
       "teamBName": "muteki",
       "type": "",
       "winnerId": "31724ff8-4f57-42fc-9271-0d0cb5832b70"
+    },
+    "44ca2c49-63b0-4195-89b0-cb4342fbd764": {
+      "completedAt": "2026-05-06T00:18:58.188Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "44ca2c49-63b0-4195-89b0-cb4342fbd764",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 5,
+      "scoreB": 0,
+      "status": "complete",
+      "teamAId": "9360446d-e598-439a-85fb-ada26caba6de",
+      "teamAName": "okbro",
+      "teamBId": "3800991c-52ce-4232-b77e-deb1ba1d30f6",
+      "teamBName": "Grandmaster Oogway",
+      "type": "",
+      "winnerId": "9360446d-e598-439a-85fb-ada26caba6de"
     },
     "44ca59c6-f367-4c30-8fdd-4432a2486c6d": {
       "completedAt": "2026-05-05T12:04:30.489Z",
@@ -11951,6 +12070,23 @@
       "teamBName": "anime girls against period cramp",
       "type": "",
       "winnerId": "64bb714f-4d8d-441f-b1e2-c9a047903430"
+    },
+    "4d28fa99-7935-4d43-a66b-d98584bd9c02": {
+      "completedAt": "2026-05-06T00:25:37.406Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "4d28fa99-7935-4d43-a66b-d98584bd9c02",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "0b3c6edc-6dce-4364-b871-5d3fbf34d5ce",
+      "teamAName": "Mr Worldwide",
+      "teamBId": "c822201f-a7b8-43b6-91c5-c55d7e1bcc1c",
+      "teamBName": "Kamikaze",
+      "type": "",
+      "winnerId": "c822201f-a7b8-43b6-91c5-c55d7e1bcc1c"
     },
     "4d4e0736-d400-498a-a2e3-52c21743637f": {
       "completedAt": "2026-05-05T23:08:49.564Z",
@@ -13975,6 +14111,23 @@
       "type": "",
       "winnerId": "443b46a9-351d-4281-8494-d33fb673402d"
     },
+    "59328b2e-1bd8-4d77-a887-f41b2fb9f6ff": {
+      "completedAt": "2026-05-06T00:18:58.143Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "59328b2e-1bd8-4d77-a887-f41b2fb9f6ff",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "088300b8-d8ec-420b-bed3-46e5949dfc49",
+      "teamAName": "Axionite Allergic Individuals",
+      "teamBId": "bab91f2b-fe3f-4156-9c7f-c5e5d2504fc4",
+      "teamBName": "AspiringGMs",
+      "type": "",
+      "winnerId": "bab91f2b-fe3f-4156-9c7f-c5e5d2504fc4"
+    },
     "593670a6-d490-4f22-8ef3-8ec1184094ff": {
       "completedAt": "2026-05-05T15:24:00.219Z",
       "createdAt": "2026-05-05T15:21:05.816Z",
@@ -14791,6 +14944,23 @@
       "type": "",
       "winnerId": "4227ccb5-4c2f-402e-a5e7-0cb419b2a137"
     },
+    "5ec3b353-2417-4949-a684-8ed780e53e97": {
+      "completedAt": "2026-05-06T00:36:13.528Z",
+      "createdAt": "2026-05-06T00:32:28.102Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "5ec3b353-2417-4949-a684-8ed780e53e97",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "1f495c12-ee7e-4d9c-8ed7-3f88ad991ec9",
+      "teamAName": "The Cambridge Edge",
+      "teamBId": "55d69169-9544-491a-a450-0d54d07e0c27",
+      "teamBName": "PPP",
+      "type": "",
+      "winnerId": "55d69169-9544-491a-a450-0d54d07e0c27"
+    },
     "5edea9e9-9d6e-4b1b-b306-dce88658a13e": {
       "completedAt": "2026-05-04T18:56:57.503Z",
       "createdAt": "2026-05-04T18:52:27.779Z",
@@ -15062,6 +15232,23 @@
       "teamBName": "test",
       "type": "",
       "winnerId": "ab8198de-3062-4789-b1ce-653e3d420efb"
+    },
+    "5fedfe02-d5ae-47cb-ae12-1ac72adbd7a1": {
+      "completedAt": "2026-05-06T00:30:09.022Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "5fedfe02-d5ae-47cb-ae12-1ac72adbd7a1",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "05a96b0d-3ce5-4be8-921b-570dd973994a",
+      "teamAName": "MFF1",
+      "teamBId": "421bd2a2-c421-4359-a06a-9a517f1e08a7",
+      "teamBName": "randomusergroup",
+      "type": "",
+      "winnerId": "421bd2a2-c421-4359-a06a-9a517f1e08a7"
     },
     "603c3408-8d7d-4908-871a-8ae8ef418baf": {
       "completedAt": "2026-05-05T13:51:12.043Z",
@@ -18377,6 +18564,23 @@
       "teamBName": "MFF1",
       "type": "",
       "winnerId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab"
+    },
+    "783c9d2a-6099-45c8-b1b3-284c2313db32": {
+      "completedAt": "2026-05-06T00:27:54.500Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "783c9d2a-6099-45c8-b1b3-284c2313db32",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "1f495c12-ee7e-4d9c-8ed7-3f88ad991ec9",
+      "teamAName": "The Cambridge Edge",
+      "teamBId": "443b46a9-351d-4281-8494-d33fb673402d",
+      "teamBName": "Make Fire",
+      "type": "",
+      "winnerId": "1f495c12-ee7e-4d9c-8ed7-3f88ad991ec9"
     },
     "783dcfb1-fedd-4191-9cdd-1d397fa4c9f1": {
       "completedAt": "2026-05-05T02:26:31.682Z",
@@ -23478,6 +23682,23 @@
       "type": "",
       "winnerId": "bbde9d3c-7048-4e4c-b433-0ca13e387c3b"
     },
+    "9812a510-6263-4af7-b972-17390e387e7a": {
+      "completedAt": "2026-05-06T00:25:16.487Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "9812a510-6263-4af7-b972-17390e387e7a",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "4227ccb5-4c2f-402e-a5e7-0cb419b2a137",
+      "teamAName": "Silver Street Capital",
+      "teamBId": "1f495c12-ee7e-4d9c-8ed7-3f88ad991ec9",
+      "teamBName": "The Cambridge Edge",
+      "type": "",
+      "winnerId": "1f495c12-ee7e-4d9c-8ed7-3f88ad991ec9"
+    },
     "984655ef-57c4-4f07-9799-2fbc91b668d8": {
       "completedAt": "2026-05-05T06:57:08.532Z",
       "createdAt": "2026-05-05T06:52:27.913Z",
@@ -25653,6 +25874,23 @@
       "teamBName": "anime girls against period cramp",
       "type": "",
       "winnerId": "d65027f1-3cc5-4afc-bfe1-0fb75d915611"
+    },
+    "a804820a-5f79-497d-b917-9c0f5de0fff6": {
+      "completedAt": "2026-05-06T00:34:13.584Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "a804820a-5f79-497d-b917-9c0f5de0fff6",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "52f2b5ac-2f05-4bde-ab81-a5dc5edaa276",
+      "teamAName": "muteki",
+      "teamBId": "55d69169-9544-491a-a450-0d54d07e0c27",
+      "teamBName": "PPP",
+      "type": "",
+      "winnerId": "52f2b5ac-2f05-4bde-ab81-a5dc5edaa276"
     },
     "a8070a96-7335-4c6a-98fc-b87377788113": {
       "completedAt": "2026-05-05T17:07:50.389Z",
@@ -28340,6 +28578,23 @@
       "type": "",
       "winnerId": "443b46a9-351d-4281-8494-d33fb673402d"
     },
+    "bc0a6b67-7f5c-43a5-b16c-c33c8d0d73b1": {
+      "completedAt": "2026-05-06T00:17:25.673Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "bc0a6b67-7f5c-43a5-b16c-c33c8d0d73b1",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "ceb23e14-0866-4a27-ba75-24ec5a56e623",
+      "teamAName": "KAIZEN",
+      "teamBId": "73598a2e-591b-4f37-9dfc-b079c7517c0d",
+      "teamBName": "Tootill Labs",
+      "type": "",
+      "winnerId": "ceb23e14-0866-4a27-ba75-24ec5a56e623"
+    },
     "bc1098e6-5fdb-4e3b-895d-20d3ded7ad4b": {
       "completedAt": "2026-05-05T09:36:11.395Z",
       "createdAt": "2026-05-05T09:32:27.905Z",
@@ -29700,6 +29955,23 @@
       "type": "",
       "winnerId": "b4a784e9-1e15-4d0d-89d0-b673c53e686b"
     },
+    "c58dbe2a-d395-4dca-8bbe-0701036388a8": {
+      "completedAt": "2026-05-06T00:33:29.231Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "c58dbe2a-d395-4dca-8bbe-0701036388a8",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "3800991c-52ce-4232-b77e-deb1ba1d30f6",
+      "teamAName": "Grandmaster Oogway",
+      "teamBId": "5616b7d8-5d2c-487b-84bd-083df03972b2",
+      "teamBName": "subscribe to caterpillow",
+      "type": "",
+      "winnerId": "3800991c-52ce-4232-b77e-deb1ba1d30f6"
+    },
     "c5b32836-54b3-4bae-8a43-a76e538721c2": {
       "completedAt": "2026-05-05T23:48:28.796Z",
       "createdAt": "2026-05-05T23:42:27.904Z",
@@ -29767,6 +30039,23 @@
       "teamBName": "Mr Worldwide",
       "type": "",
       "winnerId": "bab91f2b-fe3f-4156-9c7f-c5e5d2504fc4"
+    },
+    "c5f15bb0-d427-4fc6-b2f1-e4ab921ec444": {
+      "completedAt": "2026-05-06T00:19:41.967Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "c5f15bb0-d427-4fc6-b2f1-e4ab921ec444",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 1,
+      "scoreB": 4,
+      "status": "complete",
+      "teamAId": "0b3c6edc-6dce-4364-b871-5d3fbf34d5ce",
+      "teamAName": "Mr Worldwide",
+      "teamBId": "398247ba-db7a-4dcd-9e20-4cae45814041",
+      "teamBName": "ZvZ",
+      "type": "",
+      "winnerId": "398247ba-db7a-4dcd-9e20-4cae45814041"
     },
     "c6036842-b76e-48f3-ba3b-9eed9c4fe433": {
       "completedAt": "2026-05-04T22:51:26.835Z",
@@ -31026,6 +31315,23 @@
       "type": "",
       "winnerId": "9360446d-e598-439a-85fb-ada26caba6de"
     },
+    "ceae652a-5e85-4054-bf7c-f5e21a426d79": {
+      "completedAt": "2026-05-06T00:31:36.280Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "ceae652a-5e85-4054-bf7c-f5e21a426d79",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "ab8198de-3062-4789-b1ce-653e3d420efb",
+      "teamAName": "test",
+      "teamBId": "023ce802-d72e-44f5-b99e-71a6f97db4b7",
+      "teamBName": "Blue Dragon",
+      "type": "",
+      "winnerId": "ab8198de-3062-4789-b1ce-653e3d420efb"
+    },
     "ceae71db-aba3-40cd-b87f-ec7f26d9db7c": {
       "completedAt": "2026-05-04T18:31:23.544Z",
       "createdAt": "2026-05-04T18:22:27.821Z",
@@ -31463,6 +31769,23 @@
       "status": "complete",
       "teamAId": "b4a784e9-1e15-4d0d-89d0-b673c53e686b",
       "teamAName": "something else",
+      "teamBId": "31724ff8-4f57-42fc-9271-0d0cb5832b70",
+      "teamBName": "Oxford (aka Pantheon)",
+      "type": "",
+      "winnerId": "31724ff8-4f57-42fc-9271-0d0cb5832b70"
+    },
+    "d1b2237e-7b97-458f-94ea-9dc68b7a67cb": {
+      "completedAt": "2026-05-06T00:37:44.309Z",
+      "createdAt": "2026-05-06T00:32:28.102Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "d1b2237e-7b97-458f-94ea-9dc68b7a67cb",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "dad45443-1f2f-4290-a8d6-bdd474788f91",
+      "teamAName": "Beehive",
       "teamBId": "31724ff8-4f57-42fc-9271-0d0cb5832b70",
       "teamBName": "Oxford (aka Pantheon)",
       "type": "",
@@ -31910,6 +32233,23 @@
       "type": "",
       "winnerId": "f954bc57-4059-4ff6-ab46-390f17407d93"
     },
+    "d5f4fa55-80cb-4a84-9f42-bf85b5f19b22": {
+      "completedAt": "2026-05-06T00:19:36.644Z",
+      "createdAt": "2026-05-06T00:11:22.921Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "d5f4fa55-80cb-4a84-9f42-bf85b5f19b22",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 2,
+      "scoreB": 3,
+      "status": "complete",
+      "teamAId": "51039ed6-f87a-49b7-80aa-3ffee22a10a3",
+      "teamAName": "Faceit lvl 10",
+      "teamBId": "d65027f1-3cc5-4afc-bfe1-0fb75d915611",
+      "teamBName": "anime girls against period cramp",
+      "type": "",
+      "winnerId": "d65027f1-3cc5-4afc-bfe1-0fb75d915611"
+    },
     "d5fb3218-1886-4c70-b42b-ccacaf787a1b": {
       "completedAt": "2026-05-05T04:36:46.758Z",
       "createdAt": "2026-05-05T04:22:27.952Z",
@@ -32300,6 +32640,23 @@
       "teamBName": "Silver Street Capital",
       "type": "",
       "winnerId": "bab91f2b-fe3f-4156-9c7f-c5e5d2504fc4"
+    },
+    "d9a010d8-3b3a-4bac-b6dc-954f218a6b36": {
+      "completedAt": "2026-05-06T00:28:51.196Z",
+      "createdAt": "2026-05-06T00:12:27.713Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "d9a010d8-3b3a-4bac-b6dc-954f218a6b36",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "dad45443-1f2f-4290-a8d6-bdd474788f91",
+      "teamAName": "Beehive",
+      "teamBId": "52f2b5ac-2f05-4bde-ab81-a5dc5edaa276",
+      "teamBName": "muteki",
+      "type": "",
+      "winnerId": "dad45443-1f2f-4290-a8d6-bdd474788f91"
     },
     "d9b6bbf0-aa4e-48de-abcb-550aa7300e1c": {
       "completedAt": "2026-05-05T11:10:10.766Z",
@@ -35293,6 +35650,23 @@
       "type": "",
       "winnerId": "dad45443-1f2f-4290-a8d6-bdd474788f91"
     },
+    "ee997949-a9f0-412c-a73c-6e4b7ee725c0": {
+      "completedAt": "2026-05-06T00:24:01.941Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "ee997949-a9f0-412c-a73c-6e4b7ee725c0",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 4,
+      "scoreB": 1,
+      "status": "complete",
+      "teamAId": "31724ff8-4f57-42fc-9271-0d0cb5832b70",
+      "teamAName": "Oxford (aka Pantheon)",
+      "teamBId": "db64a383-a20a-4cf9-a57c-082e1dc9dfbf",
+      "teamBName": "bwaaa",
+      "type": "",
+      "winnerId": "31724ff8-4f57-42fc-9271-0d0cb5832b70"
+    },
     "ee9f54c0-b8df-4de4-8fdd-ba418b493643": {
       "completedAt": "2026-05-04T18:20:54.288Z",
       "createdAt": "2026-05-04T18:12:27.810Z",
@@ -36296,6 +36670,23 @@
       "type": "",
       "winnerId": "088300b8-d8ec-420b-bed3-46e5949dfc49"
     },
+    "f6b57f63-fd6c-4103-bb86-9942df1c9eda": {
+      "completedAt": "2026-05-06T00:33:28.285Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "f6b57f63-fd6c-4103-bb86-9942df1c9eda",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 3,
+      "scoreB": 2,
+      "status": "complete",
+      "teamAId": "4227ccb5-4c2f-402e-a5e7-0cb419b2a137",
+      "teamAName": "Silver Street Capital",
+      "teamBId": "bbde9d3c-7048-4e4c-b433-0ca13e387c3b",
+      "teamBName": "Squishy",
+      "type": "",
+      "winnerId": "4227ccb5-4c2f-402e-a5e7-0cb419b2a137"
+    },
     "f6bc7d3b-ba73-4c0f-a110-8b5cba1b98ce": {
       "completedAt": "2026-05-05T21:06:08.173Z",
       "createdAt": "2026-05-05T21:02:27.757Z",
@@ -37010,6 +37401,23 @@
       "type": "",
       "winnerId": "a2b913f3-6c6c-49e8-ac1c-1c7c69e3b5ab"
     },
+    "fc5edec0-9c33-4425-830d-aeedb9111e9e": {
+      "completedAt": "2026-05-06T00:26:05.177Z",
+      "createdAt": "2026-05-06T00:22:28.238Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "fc5edec0-9c33-4425-830d-aeedb9111e9e",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 4,
+      "scoreB": 1,
+      "status": "complete",
+      "teamAId": "73598a2e-591b-4f37-9dfc-b079c7517c0d",
+      "teamAName": "Tootill Labs",
+      "teamBId": "0a78efb1-d158-49ce-8627-6627d6a1e7f0",
+      "teamBName": "food",
+      "type": "",
+      "winnerId": "73598a2e-591b-4f37-9dfc-b079c7517c0d"
+    },
     "fc6bd214-c18b-4c42-8e74-31ca58e780a3": {
       "completedAt": "2026-05-05T09:10:04.982Z",
       "createdAt": "2026-05-05T09:02:27.893Z",
@@ -37503,6 +37911,23 @@
       "type": "",
       "winnerId": "dad45443-1f2f-4290-a8d6-bdd474788f91"
     },
+    "ff95d11c-4118-4ace-bbb8-12a464aa056f": {
+      "completedAt": "2026-05-06T00:37:08.154Z",
+      "createdAt": "2026-05-06T00:32:28.102Z",
+      "firstSeenAt": "2026-05-06T00:38:01Z",
+      "id": "ff95d11c-4118-4ace-bbb8-12a464aa056f",
+      "lastSeenAt": "2026-05-06T00:38:01Z",
+      "rated": false,
+      "scoreA": 5,
+      "scoreB": 0,
+      "status": "complete",
+      "teamAId": "b4a784e9-1e15-4d0d-89d0-b673c53e686b",
+      "teamAName": "something else",
+      "teamBId": "05a96b0d-3ce5-4be8-921b-570dd973994a",
+      "teamBName": "MFF1",
+      "type": "",
+      "winnerId": "b4a784e9-1e15-4d0d-89d0-b673c53e686b"
+    },
     "ff9d7b3f-596f-4f96-a6b0-8e70f0a0a9cc": {
       "completedAt": "2026-05-05T11:57:06.454Z",
       "createdAt": "2026-05-05T11:42:28.136Z",
@@ -37590,5 +38015,5 @@
     }
   },
   "schemaVersion": 1,
-  "updatedAt": "2026-05-06T00:17:07Z"
+  "updatedAt": "2026-05-06T00:38:01Z"
 }
